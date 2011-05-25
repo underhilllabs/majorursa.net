@@ -1,0 +1,213 @@
+#+TITLE:     Notes on Emacs Lisp
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+#+STYLE: <style type="text/css">.src {background:#304020; color:#FFDEAD; }</style>
+
+http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
+
+*  Elisp Notes
+** an Elisp Function
+#+begin_src elisp
+  (defun myfunction (myvar)
+         "description of function"
+         (interactive "p") ;; interactive, so you can call via M-x myfunction
+         (while (> counter 0)
+           (message "psst, another %s!" myvar)
+           (setq counter (- counter 1)))) 
+  (myfunction 3)    
+#+end_src
+
+** Ask a yes or no question
+#+begin_src elisp
+(y-or-n-p "Is Sherman the Best Snuggle Cat? ")
+;; progn lets you write a bunch of statements in a row
+;; %s string
+;; %d number
+;; %c character
+#+end_src
+
+** Use progn for a block of statements
+#+begin_src elisp
+(progn
+  (setq mymessage "You hear me!")
+  (setq num 2)
+  (message "such a lot of messages? %s %d" mymessage num))
+#+end_src
+
+** Ask if user is having fun
+#+begin_src elisp
+(defun having-fun (name)
+  (if (y-or-n-p (format "is %s also having fun? " name))
+       "good.  we all have fun"
+       "that's a shame"))
+#+end_src
+
+** Create a temp buffer, write to it, switch to temp-buffer at the end
+#+begin_src elisp
+(with-output-to-temp-buffer "*my output*" 
+  (mapc 'my-process-file (find-lisp-find-dired inputDir "\\.html$"))
+  (princ "Done.\n")
+  (switch-to-buffer "*my output*"))
+
+;; two expressions after if statement, 1st run if, the if stmt is t
+;;       2nd run if the if stmt is false (AKA nil)
+(if (< 3 2)
+    (message "3 is lt 2")
+    (message "3 is not lt 2"))
+#+end_src
+
+** Elisp Control structures
+*** When
+**** use when instead of if, *when* you don't need an else branch
+#+begin_src elisp
+(when (< 2 3)
+      (message "2 is lt 3, silly"))
+#+end_src
+
+*** Unles s
+**** unless opposite of when I guess
+#+begin_src elisp
+(unless (< 3 2)
+	(message "I guess 3 isn't lt 2 after all."))
+#+end_src
+
+*** Let
+***** let starts block with local scope, and creates local variables
+#+begin_src elisp
+;;   (using global variables with setq w/out let is considered
+;;    bad form.)
+(let ((a 30)(b 5))
+     (message "Modulus %d %d is %d" b a (mod b a)))
+     
+;; do a count dracula loop
+(let ((a 1))
+     (while (< a 10)
+     (message "%d! ah ah ah!" a)
+     (setq a (1+ a))))
+
+;; do a count dracula loop
+;; /= is elist for !=
+(let ((a 1))
+     (while (/= a 10)
+     (message "%d! ah ah ah!" a)
+     (setq a (1+ a))))
+
+; add one to each list member
+;;;; mapcar loops through list, grabs first element "car", 
+;;;;   	  and "maps" function on to that element
+;;;; lambda is a nested subroutine
+(mapcar (lambda (x) (+ x 1)) '(1 2 3 4))
+
+;; these are from http://xahlee.org/emacs/elisp_basics.html
+;; apply a file processing function to a list of files
+(mapcar 'my-update-html-footer
+        (list
+	"/home/vicky/web/3d/viz.html"
+	"/home/vicky/web/3d/viz2.html"
+	"/home/vicky/web/dinju/Khajuraho.html"
+	"/home/vicky/web/dinju/Khajuraho2.html"
+	"/home/vicky/web/dinju/Khajuraho3.html")
+	)
+;; get region argument
+(defun region-start-end (myStart myEnd)
+  "Prints region start and end positions"
+  (interactive "r")
+  (message "Region begins at: %d, ends at: %d" myStart myEnd))
+
+;; 
+(defun best-snuggler (cat)
+       "Asks user for best snuggling cat!"
+       (interactive "sPlease enter name of the best snuggling cat: ")
+       (message "Apparently, %s is the best snuggler!" cat))
+
+;; turns string into list of ascii values
+(apply 'string (mapcar (lambda (x) (+ x 3)) (string-to-list
+"ABCD123")))
+
+(defun caesar-script (num)
+       "translate buffer using caesar-script"
+       (interactive "d")
+       (let (str 
+       (apply 'string (mapcar (lambda (x) (+ x num)) (string-to-list "ABCD123")))
+(cdddr '(bossy seamus sherman dolly scribe boris keah newton))
+(loop for i in '(bossy sherman seamus dolly scribe boris)
+      collect "%s is such a good kitty" i)
+;; buffer-string -- function returns the entire buffer as a string
+;; filter-buffer-substring start end -- grabs a substring of buffer
+;;     and runs it thru a filter funcs specified in buffer-substring-filters
+;; 
+(apply 'string (mapcar (lambda (x) (+ x 2)) (string-to-list (buffer-string))))
+
+;; with-output-to-temp-buffer foo-buffer -- creates a buffer in help
+;;   (read-only mode) and sends standard output there
+;;
+
+;; append-to-file start end filename 
+;; write-region start end filename &optional append .. 
+#+end_src
+
+*** exercises from Stackoverflow:
+;; http://stackoverflow.com/questions/41522/tips-for-learning-elisp
+
+
+**** load-my-favorite-file
+     a function that when called loads up your favorite (hard-coded) file. for example, your .emacs file.
+**** cycle-special-files
+     a function that when called repeatedly, cycles through a list of your favorite files (e.g. .aliases, weeklystatus, trackerlist)
+**** count-string-matches
+     return the number of occurrences of STRING in the buffer following the point
+**** reload-dot-emacs
+     prompt to save .emacs file (if necessary) and load the file
+**** strip-trailing-whitespace
+     delete whitespace at end of lines in the entire buffer
+**** insert-code-template
+     -- a function that inserts a template into the current buffer
+     e.g. a template of a header file, or a .cpp file, or a perl file  
+     -- bonus points for providing a mechanism for making it general enough to use so that it will work differently based on the appropriate mode and/or file extension
+     -- hints : the variable 'major-mode, association lists
+     -- more bonus points, hook it up so that this function is automatically called when a new (empty) file is opened
+**** insert-checkin-template
+   -- a function that prompts you for the various fields for a check-in request, giving useful defaults
+bonus points for properly indenting the list of files
+**** string-replace
+     -- take three string arguments, replace all occurrences of the first by the second in the third string. Return the newly created string.
+
+
+**** write a function to:
+****** reverse a string
+****** write a program to compute the nth fibonacci number
+p* print out the grade school multiplication table up to 12x12
+pX write a function that sums up integers from a file, one int per line
+pX write function to print the odd numbers from 1 to 99
+****** find the largest int value in an array 
+****** Format an RGB value (three 1-byte numbers) as a 6-digit hexadecimal string.
+
+(defun print-odd (cur n)
+       "function to print odd numbers to n"
+       (interactive)
+       (if (< cur n)
+           (progn 
+                  (if (> (% cur 2) 0)
+                      (message "%d" cur))
+                  (print-odd (+ cur 1) n))
+           (message "all done")))
+(print-odd 0 100)
+
+(defun reverse-str (str rev)
+       "reverse input string"
+        (while (> (length str) 0)
+               (append rev (car '(str))))
+        rev)
+(reverse-str "hello" "")
+(car (list "hello"))
+(read-from-string)

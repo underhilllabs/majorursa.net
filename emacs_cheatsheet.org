@@ -1,0 +1,134 @@
+#+TITLE:     Emacs Cheatsheet
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+
+http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
+
+* Emacs help
+| C-h b | describe bindings |
+| C-h f | describe function |
+| C-h v | describe variable |
+| C-h m | describe mode     |
+|       |                   |
+
+* Orgmode 
+| <s TAB    | inserts #+begin_src #+end_src section   |
+| <h TAB    | inserts #+begin_html ... #+end_html     |
+| C-c .     | insert timestamp                        |
+| C-c [     | add file to Agenda                      |
+| C-c ]     | remove file from Agenda                 |
+| C-c C-e   | Org export.  Brings up menu of options  |
+| C-c C-e t | Insert Template into org doc            |
+| C-c C-e b | Export to html and open page in browser |
+| C-c c     | Org-capture                             |
+| C-c cc    | Capture Calc III assignment             |
+| C-c cp    | Capture Probs and Stats HW.             |
+
+
+* info navigation
+| l     | back in history                                 |
+| p     | prev node                                       |
+| n     | next node                                       |
+| u     | up a level                                      |
+| <spc> | scroll page  then first sub-node at end of node |
+|       |                                                 |
+
+* Emacs Macros
+| C-x (     | start keyboard macro      |
+| C-x )     | end keyboard macro        |
+| C-x e     | repeat last macro         |
+| M-n C-x e | repeat last macro n times |
+| M-x       | name-last-kbd-macro       |
+
+* More emacs commands
+| C-M ;  | comment-region           |
+| C-M \  | indent-region            |
+| M-PgUp | scroll other window up   |
+| M-PgDn | scroll other window down |
+| M-%    | queery-replace           |
+| C-x f  | set-column-fill          |
+| M-q    | fill-paragraph           |
+
+* emacs and etags
+| M-.                  | go to function                       |
+| M-*                  | after M-. go back to where you were. |
+| M-x visit-tags-table | add TAGS file for source             |
+| generate etags       | find . -name '*.java'  xargs etags   |
+|                      |                                      |
+
+       
+* JDE Keybindings
+| C-c C-v z   | add any needed imports                  |
+| C-c C-v j   | add javadoc comment for class or method |
+| C-c C-v C-c | compile                                 |
+| C-c C-v C-r | run app                                 |
+| C-c C-v C-d | debug app                               |
+
+* Magit Control
+| C-x g   | git status                                              |
+| C-c C-c | when in commit log: commit changes                      |
+|         | **in git status buffer**                                |
+| s       | stage file                                              |
+| u       | unstage file                                            |
+| c       | open commit log                                         |
+| P       | push master origin untracked file section               |
+| i       | add file to ignore                                      |
+| I       | add file to git/info/exclude                            |
+| k       | in unstaged: resets to head. ie discards changes        |
+| k       | in untracked: deletes file                              |
+| <tab>   | in staged/unstaged: shows/hides diff of changes         |
+| C-u P   | push master to ?: prompts for remote to push changes to |
+| l       | git log: hit <enter> on a commit to see changes         |
+| =       | diff current with commit at point                       |
+| t       | create lightweight tag                                  |
+| T       | create annotated tag                                    |
+| x       | prompts for revision resets HEAD to it.                 |
+
+* textile 
+| h2.          | headline                                             |
+| !>bossy.jpg! | here is a picture of Bossy that will use align=right |
+| bq.          | a block quote                                        |
+| <pre><code>  | for long code blocks use html tags                   |
+
+* rinari keybindings
+| C-c ; f c, | rinari-find-controller      |
+| C-c ; f e, | rinari-find-environment     |
+| C-c ; f f, | rinari-find-file-in-project |
+| C-c ; f h, | rinari-find-helper          |
+| C-c ; f i, | rinari-find-migration       |
+| C-c ; f j, | rinari-find-javascript      |
+| C-c ; f l, | rinari-find-plugin          |
+| C-c ; f m, | rinari-find-model           |
+| C-c ; f n, | rinari-find-configuration   |
+| C-c ; f o, | rinari-find-log             |
+| C-c ; f p, | rinari-find-public          |
+| C-c ; f s, | rinari-find-script          |
+| C-c ; f t, | rinari-find-test            |
+| C-c ; f v, | rinari-find-view            |
+| C-c ; f w, | rinari-find-worker          |
+| C-c ; f x, | rinari-find-fixture         |
+| C-c ; f y, | rinari-find-stylesheet      |
+
+* wl keybindings
+| a or A | replay to email under point |
+| d      | mark email for deletion     |
+| x      | execute commands            |
+
+  
+* git stuff
+| git status             | ==> see status files                                 |
+| git add init.el        | ==> add init.el to commit change log                 |
+| git commit             | ==> commit changes                                   |
+| git remote add origin  | git remote add git@github.com:underhilllabs/[..].git |
+| git push origin master | ==> push committed changes to git repository         |
+

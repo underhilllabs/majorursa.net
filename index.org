@@ -1,0 +1,28 @@
+#+TITLE:     Major Ursa
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+##+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
+
+* Major Ursa Hackerspace \sube Major Ursa Tech Collective
+
+
+** here are some of my notes:
++ [[./zombies.org][Emacs, Orgmode and Zombies]]
++ [[./rails_notes.org][My notes on Ruby and Rails]]
++ [[./emacs_cheatsheet.org][My Emacs cheatsheet]]
++ [[./elisp_notes.org][Emacs Lisp Notes]]
+
+------
+
+

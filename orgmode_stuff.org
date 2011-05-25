@@ -1,0 +1,51 @@
+#+TITLE:     Orgmode Stuff
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+
+
+* Orgmode
+** Things I learned from the manual
+
+*** M-S works on subtree
+**** M-S <left> or <right> promotes/demotes entire sub-tree
+I've needed this many times!!
+**** M-S <up> or <down> moves entire sub-tree up or down
+
+*** org-log-done Setting
+(setq org-log-done 'time) to log timestamp of when task was
+completed.  I used to have this set to 'note and every time I finished
+a task it would ask me to write a closing note, which was annoying and
+overkill for my use cases.
+*** add/remove files from agenda
+**** add file to agenda C-c [ 
+**** remove file from agenda C-c ]
+
+*** Timestamps
+**** add a timestamp with C-c .
+**** Plain Timestamp <2011-05-22 >
+     Add a plain timestamp to any headline and the headline will appear in the
+     agenda on the day of the timestamp.
+**** Meet Steven at Movies <2011-05-22 19:15>
+     If you add a time, then a date/time planner will pop up on that day.
+**** Scheduling an item vs. plain timestamp
+     Scheduled: is the timestamp when you want to start working on an
+     action item, not say when a meeting or dinner date is scheduled.
+     For those, just add a plain timestamp to the header.
+*** Org-capture
+    in org 7+ org-remember has been added into org as org-capture
+** tracking habits
+*** how to set up Habit Tracking
+**** add org-habit to org-modules list
+**** put in :properties: for the todo that :style: habit
+**** set a repeating schedule 
+     .+2d/4d would mean every 2 to 4 days.

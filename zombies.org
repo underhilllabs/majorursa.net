@@ -1,0 +1,97 @@
+#+TITLE:     Zombies, Org-mode and Emacs
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+#+STYLE:  <style type="text/css">.src {background:#304020; color:#FFDEAD; width:60%}</style>
+
+** Using Org-babel to create Graphviz graphs in Emacs
+
+
+
+#+begin_html
+<a href="http://www.flickr.com/photos/redbike/5738522164/" title="Zombie Graph with Emacs and Graphviz by denverfiddler, on Flickr"><img src="http://farm3.static.flickr.com/2741/5738522164_058b838336.jpg" width="500" height="339" alt="Zombie Graph with Emacs and Graphviz"></a>
+<p>
+<a href="http://www.flickr.com/photos/redbike/5738238466/" title="Zombie Apocalypse Digraph by denverfiddler, on Flickr"><img src="http://farm4.static.flickr.com/3280/5738238466_8320bfd478_o.png" width="293" height="379" alt="Zombie Apocalypse Digraph"></a>
+<p>
+I was playing around with <a href="http://www.graphviz.org/Gallery.php">Graphviz</a> inside <a href="http://orgmode.org/">orgmode</a> inside Emacs.
+
+Come the Zombie Apocalypse I'll be prepared, thanks to Emacs and Orgmode.
+
+<br />
+If you are interested in graphviz, you can click on any graph in <a href="http://www.graphviz.org/Gallery.php">this gallery</a> and see the graphviz source for the graph.
+
+<p>
+#+end_html
+
+I wrote the graph source first in Emacs in Orgmode 7.5.  Here's the src for experimenting with graphs in orgmode using the new <a href="http://j.mp/l6chaqorgmode.org/worg/org-contrib/babel/">org-babel</a>, which lets you evaluate code in special code sections right inside of Emacs:
+#+begin_src dot :file digraph2.png :exports both :cmdline -Kdot -Tpng :results output  
+digraph D {
+  size="8,6"
+ node [ shape = polygon,
+  sides = 4,
+  distortion = "0.0",
+  orientation = "0.0",
+  skew = "0.0",
+  color = "#aaaaaa",
+  style = filled,
+  fontname = "Helvetica-Outline" ];
+  apocalypse [sides=9 skew=".32" color="purple"]
+  apocalypse -> zombie
+  apocalypse -> zombies
+  shovel [skew=".56" color="#aa2222"]
+  subgraph singular {
+    label="one"
+    color=purple
+    zombie -> shovel [color="#440000"]
+    shovel -> run
+  }
+  run [sides=9, color=salmon2];
+  subgraph plural {
+    label="many"
+    color=red
+    zombies -> run [color="#00a4d4"]
+  }
+}
+#+end_src
+
+#+results:
+[[file:digraph2.png]]
+
+
+#+begin_html
+Then inside the buffer you can evaluate the code with "C-c C-c", and you can see the results of evaluating the code with "C-c C-o".
+
+This is made possible by Org-babel, a cool tool that allows you to run scripts from different languages in a single Org-mode buffer.  Not only that but you can pipe output from one code block to another code block written in a different language.  I will have more blog posts about this in the future.  Org-babel is a part of Org-mode since Org-mode 7.x or so.  Exciting stuff!
+<p />
+<h3>Further Reading</h3>
+<br />
+<a href="http://j.mp/l6chaqorgmode.org/worg/org-contrib/babel/">Org-babel Documentation</a><br>
+<a href="http://www.graphviz.org/">Graphviz</a>
+#+end_html
+
+** Here's some LaTex to try
+
+Exponential Growth  and Decay Equation
+
+$\displaystyle\boxed{P(t) = P_0 e^{kt} }$
+
+What is the rate of decay "k", given a certain half-life of "t" years:
+
+$\displaystyle\boxed{ k = \frac{ln(\frac{1}{2})}{t} }$
+
+What is the half-life "t", given a rate of decay, "k":
+
+$\displaystyle\boxed{ t = \frac{ln(\frac{1}{2})}{k} }$
+
+------
+
+http://farm4.static.flickr.com/3184/2886745454_222717cf27_m.jpg

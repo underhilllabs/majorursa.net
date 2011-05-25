@@ -1,0 +1,83 @@
+#+TITLE:     Rails Notes
+#+DATE:      2011-05-24 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+#+STYLE: <style type="text/css">.src {background:#304020; color:#FFDEAD; }</style>
+
+http://farm4.static.flickr.com/3184/2886745454_222717cf27_m.jpg
+
+
+* Rails commands
+| rails commands |                                |
+|----------------+--------------------------------|
+| rails g        | call generator                 |
+| rails c        | rails console                  |
+| rails db       | rails dbconsole                |
+| rails new      | create a new rails application |
+
+* Rinari commands
+[[http://rinari.rubyforge.org/][Rinari]] is a cool Ruby on Rails minor mode for Emacs. 
+| Key binding | Rinari Command  |
+|-------------+-----------------|
+| C-c ; f     | find command    |
+| C-c ; f c   | Find Controller |
+| C-c ; f m   | Find Model      |
+| C-c ; f v   | Find View       |
+| C-c ; c     | rails console   |
+| C-c ; d     | dbconsole       |
+|             |                 |
+
+* ruby stuff
+
+#+begin_src ruby :results output :exports both 
+
+# loop 10 times
+1.upto(10) { |i| print i, ", " }
+puts " "
+# open file and read lines
+open("/home/bart/rubys/namesdata.txt").readlines.each do |line|
+    str = line.split(" ")
+    # print all but last 4 fields
+    names = str[0..-5]
+    puts names.join(" ") + ": " + str[-3].to_s
+    
+end
+
+#+end_src
+
+#+results:
+#+begin_example
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10,  
+James Tiberius Kirk: 234.13
+Jean-Luc Picard: 34.38
+Data: 3.5
+Chief Inspector Seamus Olav McGraw: 2334.333
+Geordi LaForge: 37.37
+Major Kira Nerys: 21.32
+Commander Worf: 54.53
+Lursa Duras: 354.23
+Elim Garak: 31.1
+Quark: 37.37
+Benjamin Sisko: 334.3
+The Grand Nagus: 334.3
+Mister Spock: 39.42
+Chief Engineer Montgomery Scott: 39.23
+Sherman LeGrande: 343.3
+Doctor Julian Bashir: 12.3
+Jadzia Dax: 14.8
+William Riker: 64.38
+Seven of Nine: 34.5
+#+end_example
+
+
+-----
+
