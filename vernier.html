@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>Caesar Shift ciper</title>
+<script language="javascript" type="text/javascript">
+UPPERBOUND=122;
+function encipher() {
+  // get string from plaintext (pt) textarea 
+  var pt = document.myform.pt.value;
+  var ct = "";
+  var myint = 0;
+  var key = document.myform.shiftval.value;
+  var keys = new Array();
+  for(j = 0; j < key.length; j++) {
+    keys[j] = parseInt(key.charCodeAt(j)) - 97;
+  }
+  cur_key = 0;
+  pt = pt.toLowerCase();
+  alert(keys);  
+
+  // loop through string enciphering each char 
+  for(i=0; i < pt.length; i++) {
+    myint = parseInt(pt.charCodeAt(i));
+    if(myint > 96 && myint < 123) {
+      cur_key = keys[i % key.length];
+      myint = shift_char(myint,cur_key); 
+      ct += String.fromCharCode(myint);
+    } else {
+      if (document.myform.fmt.checked == true) {    
+        ct += pt[i]; 
+      }
+    }
+  }
+  ct = ct.toUpperCase();
+  // write CYPHERTEXT to ciphertext textarea
+  document.myform.ciphertext.value = ct;
+}
+
+function shift_char(char, step) {
+  char += step;
+  if(char > UPPERBOUND) {
+    char -= 26;
+  }
+  return char;
+}
+
+</script>
+</head>
+
+<body>
+<h1>Vernier Shift Cipher</h1>
+<form name="myform">
+plaintext:<br>
+<textarea rows=5 name="pt">
+Enter message here
+</textarea>
+<p>
+Encoding Key:<br>
+<input type=text name=shiftval value=13 >
+<br>
+<input type=checkbox name=fmt value=spaces checked> Include spaces and punctuation <br>
+<input type=button onclick="javascript:encipher();" value="Encipher!" name=form_button>
+<p>
+CIPHERTEXT:<br>
+<textarea rows=5 name="ciphertext">
+</textarea>
+<p>
+</form>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Wed Aug 24 17:13:02 MDT 2011 <!-- hhmts end -->
+</body> </html>
