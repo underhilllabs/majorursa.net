@@ -12,11 +12,7 @@ function encipher() {
   var myint = 0;
   var shift = parseInt(document.myform.shiftval.value);
   pt = pt.toLowerCase();
-
-  //if (document.myform.fmt[0].checked) {
-  //  var spaces = document.myform.fmt[0].checked;
-  //  alert(spaces);
-  //}
+    
 
   // loop through string enciphering each char 
   for(i=0; i < pt.length; i++) {
@@ -25,7 +21,9 @@ function encipher() {
       myint = shift_char(myint,shift); 
       ct += String.fromCharCode(myint);
     } else {
-      ct += pt[i]; 
+      if (document.myform.fmt.checked == true) {    
+        ct += pt[i]; 
+      }
     }
   }
   ct = ct.toUpperCase();
@@ -55,7 +53,7 @@ Enter message here
 Shift Value:<br>
 <input type=text name=shiftval value=13 >
 <br>
-<input type=radio name=fmt value=spaces checked> Include spaces and punctuation <br>
+<input type=checkbox name=fmt value=spaces checked> Include spaces and punctuation <br>
 <input type=button onclick="javascript:encipher();" value="Encipher!" name=form_button>
 <p>
 CIPHERTEXT:<br>
