@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>Caesar Shift ciper</title>
+<script language="javascript" type="text/javascript">
+UPPERBOUND=122;
+function encipher() {
+  // get string from plaintext (pt) textarea 
+  var pt = document.myform.pt.value;
+  var ct = "";
+  var myint = 0;
+  var shift = parseInt(document.myform.shiftval.value);
+  pt = pt.toLowerCase();
+  //var spaces = document.myform.spaces.selected;
+  //alert(spaces);
+
+  // loop through string enciphering each char 
+  for(i=0; i < pt.length; i++) {
+    myint = parseInt(pt.charCodeAt(i));
+    if(myint > 96 && myint < 123) {
+      // moved these lines to shift_char
+      // 
+      //myint += shift;
+      //if(myint > 122) {
+      //  myint -= 26;
+      //}
+      myint = shift_char(myint,shift); 
+      ct += String.fromCharCode(myint);
+    } else {
+      ct += pt[i]; 
+    }
+  }
+  ct = ct.toUpperCase();
+  // write CYPHERTEXT to ciphertext textarea
+  document.myform.ciphertext.value = ct;
+}
+
+function shift_char(char, step) {
+  char += step;
+  if(char > 122) {
+    char -= 26;
+  }
+  return char;
+}
+
+</script>
+</head>
+
+<body>
+<h1>Caesar Shift Cipher</h1>
+<form name="myform">
+plaintext:<br>
+<textarea rows=5 name="pt">
+Enter message here
+</textarea>
+<p>
+Shift Value:<br>
+<input type=text name=shiftval value=13 >
+<br>
+<input type=button onclick="javascript:encipher();" value="Encipher!" name=form_button>
+<p>
+CIPHERTEXT:<br>
+<textarea rows=5 name="ciphertext">
+</textarea>
+<p>
+<input type=radio value=spaces default=selected> Include spaces and
+punctuation <br>
+</form>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Wed Aug 24 13:08:17 MDT 2011 <!-- hhmts end -->
+</body> </html>
