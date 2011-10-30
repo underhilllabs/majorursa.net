@@ -1,16 +1,13 @@
 #+TITLE:     Emacs Cheatsheet
 #+DATE:      2011-05-24 Tue
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS: emacs, orgmode, magit, git
 #+LANGUAGE:  en
-#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:{} -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   index.html
 #+LINK_HOME: index.html
-#+XSLT:
+
 
 http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 
@@ -22,6 +19,7 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 |       |                   |
 
 * Orgmode 
+This list is very miscellanous, see [[http://orgmode.org]]
 | <s TAB    | inserts #+begin_src #+end_src section   |
 | <h TAB    | inserts #+begin_html ... #+end_html     |
 | C-c .     | insert timestamp                        |
@@ -30,12 +28,20 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 | C-c C-e   | Org export.  Brings up menu of options  |
 | C-c C-e t | Insert Template into org doc            |
 | C-c C-e b | Export to html and open page in browser |
+| C-c C-e P | Export and publish current project      |
+| C-c C-e F | Export and publish current file         |
+| C-c C-e l | Export as LaTex file                    |
+| C-c C-e p | Export as LaTex and process pdf         |
+| C-c C-e p | Same as above ... and open pdf          |
 | C-c c     | Org-capture                             |
 | C-c cc    | Capture Calc III assignment             |
 | C-c cp    | Capture Probs and Stats HW.             |
+|           |                                         |
 
 
-* info navigation
+
+* Info Navigation
+Navigating in the Emacs Info Reader
 | l     | back in history                                 |
 | p     | prev node                                       |
 | n     | next node                                       |
@@ -43,28 +49,60 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 | <spc> | scroll page  then first sub-node at end of node |
 |       |                                                 |
 
+
 * Emacs Macros
 | C-x (     | start keyboard macro      |
 | C-x )     | end keyboard macro        |
 | C-x e     | repeat last macro         |
 | M-n C-x e | repeat last macro n times |
 | M-x       | name-last-kbd-macro       |
+|           |                           | 
+  
+* More Emacs Commands
+| C-M ;     | comment-region           |
+| C-u C-M ; | un-comment-region        |
+| C-M \     | indent-region            |
+| M-PgUp    | scroll other window up   |
+| M-PgDn    | scroll other window down |
+| M-%       | queery-replace           |
+| C-x f     | set-column-fill          |
+| M-q       | fill-paragraph           |
+|           |                          |
 
-* More emacs commands
-| C-M ;  | comment-region           |
-| C-M \  | indent-region            |
-| M-PgUp | scroll other window up   |
-| M-PgDn | scroll other window down |
-| M-%    | queery-replace           |
-| C-x f  | set-column-fill          |
-| M-q    | fill-paragraph           |
+* Dired Commands
+| m | mark file                             |
+| u | unmark file                           |
+| d | mark file for deletion                |
+| x | execute deletions                     |
+| Q | regexp search-replace in marked files |
+| R | rename marked files                   |
+| Z | compress file                         |
+| ~ | mark all backup files for deletion    |
+| # | mark all #'d files for deletion       |
+| O | change owner                          |
+| s | toggle sorting by name/date           |
+|   |                                       |
 
-* emacs and etags
+** C-x C-q in Dired mode
+also C-x C-q allows you to edit the dired directory as a file, and use
+macros or string-replace to change lots of file names at once. Use C-c
+C-c to save changes.
+
+* Emacs and Etags
 | M-.                  | go to function                       |
 | M-*                  | after M-. go back to where you were. |
 | M-x visit-tags-table | add TAGS file for source             |
 | generate etags       | find . -name '*.java'  xargs etags   |
 |                      |                                      |
+
+
+* Tramp
+with Tramp you use the same "write-file" command with keybinding *C-x
+C-w* and then give a remote ssh path as the file path
+| save file to server                | C-x C-w                                   |
+| use ssh path to save file remotely | /ssh:username@yourserver.org:path/to/file |
+|                                    |                                           |
+|                                    |                                           |
 
        
 * JDE Keybindings
@@ -73,13 +111,16 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 | C-c C-v C-c | compile                                 |
 | C-c C-v C-r | run app                                 |
 | C-c C-v C-d | debug app                               |
+|             |                                         |
+
 
 * Magit Control
+Magit is an Emacs Mode for interacting with Git Repositories
 | C-x g   | git status                                              |
 | C-c C-c | when in commit log: commit changes                      |
-|         | **in git status buffer**                                |
-| s       | stage file                                              |
-| u       | unstage file                                            |
+|         | **Following commands work in git status buffer**        |
+| s       | stage file at point                                     |
+| u       | unstage file at point                                   |
 | c       | open commit log                                         |
 | P       | push master origin untracked file section               |
 | i       | add file to ignore                                      |
@@ -93,14 +134,10 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 | t       | create lightweight tag                                  |
 | T       | create annotated tag                                    |
 | x       | prompts for revision resets HEAD to it.                 |
+|         |                                                         |
 
-* textile 
-| h2.          | headline                                             |
-| !>bossy.jpg! | here is a picture of Bossy that will use align=right |
-| bq.          | a block quote                                        |
-| <pre><code>  | for long code blocks use html tags                   |
-
-* rinari keybindings
+* Rinari Keybindings
+Rinari is an Emacs Mode for Ruby on Rails projects.
 | C-c ; f c, | rinari-find-controller      |
 | C-c ; f e, | rinari-find-environment     |
 | C-c ; f f, | rinari-find-file-in-project |
@@ -119,16 +156,31 @@ http://farm1.static.flickr.com/130/330223208_508744ea49_m.jpg
 | C-c ; f x, | rinari-find-fixture         |
 | C-c ; f y, | rinari-find-stylesheet      |
 
-* wl keybindings
-| a or A | replay to email under point |
-| d      | mark email for deletion     |
-| x      | execute commands            |
 
   
-* git stuff
+* Git Stuff
 | git status             | ==> see status files                                 |
 | git add init.el        | ==> add init.el to commit change log                 |
 | git commit             | ==> commit changes                                   |
 | git remote add origin  | git remote add git@github.com:underhilllabs/[..].git |
 | git push origin master | ==> push committed changes to git repository         |
+
+
+* Textile 
+Textile is a markup language.  I use org-mode markup more these days. 
+| h2.          | headline                                             |
+| !>bossy.jpg! | here is a picture of Bossy that will use align=right |
+| bq.          | a block quote                                        |
+| <pre><code>  | for long code blocks use html tags                   |
+
+* wl Keybindings
+Wanderlist is an Emacs Mode for Reading Email.
+| a or A | replay to email under point |
+| d      | mark email for deletion     |
+| x      | execute commands            |
+
+
+
+
+-----
 

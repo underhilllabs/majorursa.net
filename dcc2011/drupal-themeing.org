@@ -1,0 +1,70 @@
+#+TITLE:     Drupal Themeing
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP: ./index.html  
+#+LINK_HOME: ../index.html
+#+XSLT:
+#+STYLE: <link rel='stylesheet' href="http://majorursa.net/my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+* Part 1 why themes? how themes work
+** why themes?
+*** separation is useful
+**** flexible
+**** maintainable
+**** accessible
+*** style + markup + data
+** how do themes work
++ styles  .css
++ markup .tpl.php
++ scripting .js
++ block regions, settings .info
++ overrides template.php
+*** info file
+
+base theme: garland
+*** section templates
+**** page.tpl.php
++ entire page
+**** block.tpl.php
++ blocks sections
+**** node.tpl.php
++ the main node
++ in teaser view, the nodes
+
+
+* Part II themeing in practise
+
+** mytheme.info
+*** Themeing Revelations 
+1) modules provide initial templates and markup, themes only override
+  default behavior.
+2) clear cache to refresh theme information
+3) in additiona to  
+4) all drupl markup comes from tpl.php or theme.inc functions
+
+
+** css
+1) add to your themes .info file
+
+** functional overrides
+*** $ variable are coming from theme_username
+**** theme.inc
++ theme_username in theme.inc
++ can copy functions from theme.inc into template.php
++ prepend your theme name to customized theme functions
+**** devel modeul
++ dpm() prints out attributes onto page, so you can inspect passed in arrays
+**** drupal 7 change
+1) drupal 6
+mytheme_foo($a, $b); 
+
+2) drupal 7
+mytheme_foo(array($a, $b) ); 

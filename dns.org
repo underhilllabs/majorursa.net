@@ -1,0 +1,39 @@
+* What is DNS?
+DNS stands for Domain Name System.  It is a service that maps a human
+readable domain name, like majorursa.net, to a computer readable
+numeric address (or dotted quad) 173.230.154.132
+
+* Setting up a DNS entry On a DNS server using BIND
+** There are three files that need to be changed
+*** named.conf
+This file contains pointers to zone files for each domain (as well as
+some bind configuration directives.)
+
+Add a line at the end of /etc/named.conf that will point to the zone
+file for your new domain:
+#+begin_html
+<pre>
+primary         majorursa.net     named.hosts
+</pre>
+#+end_html
+
+*** named.hosts
+This is a file with zone information for your domain. It lists the
+file where domain configuration is stored.
+#+begin_html
+<pre>
+zone "majorursa.net" {
+    type "master";
+    file "named.hosts";
+};
+</pre>
+#+end_html
+
+*** named.hosts
+This is the file where you point each domain name at an IP address or
+another domain name
+#+begin_html
+<pre>
+
+</pre>
+#+end_html

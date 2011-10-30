@@ -1,0 +1,43 @@
+#+TITLE:     R, Emacs and Org-mode
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     blantz@mscd.edu
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+** Using R with Org-babel
+
+*** to export a graph created by R, use the following line to start the R code:
+
+#+begin_html
+<pre>
+&#35;+begin_src R :results graphics :file lightning.png :exports both
+</pre>
+#+end_html
+
+*** Parameters explained:
++ *:results graphics* exports the results as a graphics file.
++ *:file* lightning.png exports the graph to a file named lightning.png
++ *:exports both* exports both the code and the results
+
+*** to end the R code use the following line 
+#+begin_html
+<pre>
+&#35;+end_src
+</pre>
+#+end_html
+
+
+** R Emacs Tips
+*** M-x R
+type M-x R to start the inferior R process in an emacs buffer
+
+*** History
+if you start R-mode in the same directory each time and save the
+session at the end of your session, then your history and session
+variables will be preserved between sessions.

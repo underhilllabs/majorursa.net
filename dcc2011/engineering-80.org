@@ -1,0 +1,76 @@
+#+TITLE:     Engineering for the other 80%, too
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP: ./index.html  
+#+LINK_HOME: ../index.html
+#+XSLT:
+#+STYLE: <link rel='stylesheet' href="../my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+
+* Jen
+** Engineering for the other 80%, too
++ graph of usage, levelled off right as drupal 7 was released
++ Drupal 7 is *HARD*
+  + modules not ready
+  + why?
+** Raising Barrier to Entry
++ needs to know so much more in D7, than in d6, d5
++ steeper learning curve
+
+
+* CHX Counterpoint
+** Engineering for too 80% of ...?
+1) all visitors of drupal sites
+2) all drupal sites
+3) all drupal users (builders, coders, ..)
+4) all drupal developers (coders, themers)
+5) all drupal designers
+
+** Everyone Wants Features
+1) an ad between 3rd and 4th comment
+2) access control for single node
+
+** D7 Has Solutions ( but lots of indirection)
+1) hook_page_alter
+ + can put content anywhere on page
+
+** D7 Has Problems
+1) RDFa has performance issues
+2) hook_page_alter coding by committee
+3) entity api half-baked
+4) DBTNG: created a new db query abstraction layer
+   + unfamiliar to developers of other sql queries 
+
+** Everyone Wants Features
+1)  requires indirection
+2)  indirection brings complexity
+
+** Possible Solution:
+1) simple API for simple use cases
+2) also complex API for more complex feauture requests
+
+** Big Issue: Removed Logic from templates
++ in favor of Render
+ + print render($page['header']);
+
+** Documentation
+1) api documentation
+2) docs about what you should do, why you should do it
+3) drupal books
+   1) publishers publish books before d7 was stable
+4) ship Drupal with Tutorial in box
+
+ 
+-----
+
+
+
+

@@ -1,0 +1,40 @@
+#+TITLE:     Tools for working with Data
+#+DESCRIPTION:
+#+KEYWORDS: bigdata, webscraper, data, data science, statistics
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+#+XSLT:
+
+
+* Web Scraping
+Web scraping is a technique of extracting information from websites.
+** Scraperwiki
+http://scraperwiki.com
+
+Scraperwiki has tutorials on scraping webpages for data, written for
+Python and Ruby.
++ [[http://blog.scraperwiki.com/2011/08/15/scraperwiki-tutorial-screencast-for-non-programmers/][ScraperWiki screencast on scraping for non-programmers.]]
+
+
+** Google Refine
+http://code.google.com/p/google-refine/
+*** Use to clean up messy and inconsistent data
+
+** Chrome Developer Tools
+*** use to see the DOM underlying web pages
+If there is a table of data on a web page that you want to scrape,
+select it with your mouse, right click on the selection and choose
+inspect element in the pop up menu.  This should work in Safari,
+Chrome or Firefox with the Firebug plug-in.
+
+* Data Analysis
+** R
+http://www.r-project.org/
+
++ 
+
+
+-----

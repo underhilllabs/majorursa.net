@@ -1,0 +1,105 @@
+#+TITLE:     Modern Web Typography
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   ./index.html
+#+LINK_HOME: ../index.html
+#+XSLT:
+#+STYLE: <link rel='stylesheet' href="http://majorursa.net/my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+* Modern Web Typography 
+
+** History of Fonts on the web
+*** <FONT> tag
+could customize fonts: size, color, face
+*** Image Replacement 
+hide text, and use images instead
+**** no images, can't read
+**** heavy pages
+**** lot of work
+*** sIFR
+**** use flash for font, gross...
+**** text wasn't selectable
+*** cufon
+??what what
+*** web fonts using @font-face
+1) introduced in IE 4
+2) adopted by CSS 2
+3) removed in 2.2.1
+4) finally added by browsers 2 years ago
+
+** Font-face syntax
+*** css file
+#+begin_html
+  <pre>
+  @font-face {
+    font-family: 'MyWebFont';
+    /* IE9 ... */ 
+    src: url('webfont.eot');
+    src: 
+     /* ... font declarations for every fricking browser */
+     /* Modern Browsers */
+     url('webfont.woff') format('woff');
+  }
+  </pre>
+#+end_html
+
+** Selecting Font
+*** No Rules
++ except that Comic Sans and Papyrus are terrible
+*** Display Faces
++ Good for Headlines, bad for body text
+*** good site examples
+1) lostworldsfairs.com
+2) austinbeerworks.com
+3) denver2012.drupal.org
+*** Browser Issues
+**** FOUT
+**** Hinting
++ How a font is rendered on different browsers
+  + some browsers are weighted heavier
+
+** Tools to help with font
+*** Jquery plugins
+**** lettering.js
++ a jquery plugin for radical web typography
+**** fitText
++ jquery for inflating web text
+**** kern.js
+
+** Sources for Web Fonts
+*** Typekit.com
+*** google.com/webfonts
++ free and open source
+*** kernest.com
+*** font squirrel (.com)
++ Have a Font-Face Generator
+
+
+** How to Use Fonts in Drupal
+*** Directly in Themes
+*** Drupal Modules
+**** Google Fonts API
++ great for using Google Fonts
+**** @font-your-face
++ can preview fonts in modules
+
+
+
+* 
+
+[[http://2011.drupalcampcolorado.org][from Drupal Camp Colorado 2011]]
+
+
+-----
+
+
+

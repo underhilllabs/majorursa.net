@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Design in the Browser</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-06-11 Sat"/>
+<meta name="author" content="Bart Lantz"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="drupal.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<h1 class="title">Design in the Browser</h1>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Design in the Browser </a>
+<ul>
+<li><a href="#sec-1_1">Process Before Photoshop Mockups </a>
+<ul>
+<li><a href="#sec-1_1_1">Photoshop Mock-ups </a></li>
+<li><a href="#sec-1_1_2">frustrating experience, non-interactive </a></li>
+<li><a href="#sec-1_1_3">Hard to Change w/ photoshop easy w/ CSS </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_2">CSS Mockup </a>
+<ul>
+<li><a href="#sec-1_2_1">the design they approve is the same they get. </a></li>
+<li><a href="#sec-1_2_2">Discover technical issues right away. </a></li>
+<li><a href="#sec-1_2_3">Decide <b>together</b> how to go about the design </a></li>
+<li><a href="#sec-1_2_4">Present in Browser </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_3">Who does it </a>
+<ul>
+<li><a href="#sec-1_3_1">dribbble </a></li>
+<li><a href="#sec-1_3_2">andy clarke: hard-boiled web design </a></li>
+<li><a href="#sec-1_3_3">@owltastic </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_4">Design Thinking in CSS </a>
+<ul>
+<li><a href="#sec-1_4_1">Play and Experiment </a></li>
+<li><a href="#sec-1_4_2">Hard to do in Photoshop </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_5">Tools </a>
+<ul>
+<li><a href="#sec-1_5_1">Firebug, Webkit Inspector, Firebug-lite </a></li>
+<li><a href="#sec-1_5_2">Sass &amp; Compass </a></li>
+<li><a href="#sec-1_5_3">Compass </a></li>
+<li><a href="#sec-1_5_4">Define css variables </a></li>
+<li><a href="#sec-1_5_5">Livereload </a></li>
+<li><a href="#sec-1_5_6">Modernizr </a></li>
+<li><a href="#sec-1_5_7">Selectivizr </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_6">A Coding Designer's Survival Kit </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Design in the Browser </h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>Use CSS to stop lying to ourselves and our clients
+</li>
+<li>How to an effing Web Designer
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1_1" class="outline-3">
+<h3 id="sec-1_1">Process Before Photoshop Mockups </h3>
+<div class="outline-text-3" id="text-1_1">
+
+
+</div>
+
+<div id="outline-container-1_1_1" class="outline-4">
+<h4 id="sec-1_1_1">Photoshop Mock-ups </h4>
+<div class="outline-text-4" id="text-1_1_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_1_2" class="outline-4">
+<h4 id="sec-1_1_2">frustrating experience, non-interactive </h4>
+<div class="outline-text-4" id="text-1_1_2">
+
+<ul>
+<li id="sec-1_1_2_1">what happens when I mouse-over.. <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_3" class="outline-4">
+<h4 id="sec-1_1_3">Hard to Change w/ photoshop easy w/ CSS </h4>
+<div class="outline-text-4" id="text-1_1_3">
+
+<ul>
+<li id="sec-1_1_3_1">fonts, color pallete <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_1_3_2">Last Minute Panic <br/>
+<ul>
+<li id="sec-1_1_3_2_1">browser support, interactions, type rendering <br/>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_2" class="outline-3">
+<h3 id="sec-1_2">CSS Mockup </h3>
+<div class="outline-text-3" id="text-1_2">
+
+
+</div>
+
+<div id="outline-container-1_2_1" class="outline-4">
+<h4 id="sec-1_2_1">the design they approve is the same they get. </h4>
+<div class="outline-text-4" id="text-1_2_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_2_2" class="outline-4">
+<h4 id="sec-1_2_2">Discover technical issues right away. </h4>
+<div class="outline-text-4" id="text-1_2_2">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_2_3" class="outline-4">
+<h4 id="sec-1_2_3">Decide <b>together</b> how to go about the design </h4>
+<div class="outline-text-4" id="text-1_2_3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_2_4" class="outline-4">
+<h4 id="sec-1_2_4">Present in Browser </h4>
+<div class="outline-text-4" id="text-1_2_4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_3" class="outline-3">
+<h3 id="sec-1_3">Who does it </h3>
+<div class="outline-text-3" id="text-1_3">
+
+
+</div>
+
+<div id="outline-container-1_3_1" class="outline-4">
+<h4 id="sec-1_3_1">dribbble </h4>
+<div class="outline-text-4" id="text-1_3_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3_2" class="outline-4">
+<h4 id="sec-1_3_2">andy clarke: hard-boiled web design </h4>
+<div class="outline-text-4" id="text-1_3_2">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3_3" class="outline-4">
+<h4 id="sec-1_3_3">@owltastic </h4>
+<div class="outline-text-4" id="text-1_3_3">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_4" class="outline-3">
+<h3 id="sec-1_4">Design Thinking in CSS </h3>
+<div class="outline-text-3" id="text-1_4">
+
+
+</div>
+
+<div id="outline-container-1_4_1" class="outline-4">
+<h4 id="sec-1_4_1">Play and Experiment </h4>
+<div class="outline-text-4" id="text-1_4_1">
+
+<ul>
+<li>Experiment in Firebug
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_4_2" class="outline-4">
+<h4 id="sec-1_4_2">Hard to do in Photoshop </h4>
+<div class="outline-text-4" id="text-1_4_2">
+
+<ul>
+<li id="sec-1_4_2_1">What to do if this headline wraps? <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_4_2_2">Have you designed for all possible list types? Tables? Form Elements? <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_4_2_3">Fluid Layouts <br/>
+
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_5" class="outline-3">
+<h3 id="sec-1_5">Tools </h3>
+<div class="outline-text-3" id="text-1_5">
+
+
+</div>
+
+<div id="outline-container-1_5_1" class="outline-4">
+<h4 id="sec-1_5_1">Firebug, Webkit Inspector, Firebug-lite </h4>
+<div class="outline-text-4" id="text-1_5_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_2" class="outline-4">
+<h4 id="sec-1_5_2">Sass &amp; Compass </h4>
+<div class="outline-text-4" id="text-1_5_2">
+
+<p><a href="#sass-lang.com">sass-lang.com</a>
+</p><ul>
+<li>Firesass
+</li>
+<li>SCSS
+</li>
+<li>Variables, Nesting, Mixins, 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_3" class="outline-4">
+<h4 id="sec-1_5_3">Compass </h4>
+<div class="outline-text-4" id="text-1_5_3">
+
+<p><a href="#compass-style.org">compass-style.org</a>
+</p><ul>
+<li>Stylesheet framework built around Sass
+</li>
+<li>built in mixins for CSS3
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_4" class="outline-4">
+<h4 id="sec-1_5_4">Define css variables </h4>
+<div class="outline-text-4" id="text-1_5_4">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_5" class="outline-4">
+<h4 id="sec-1_5_5">Livereload </h4>
+<div class="outline-text-4" id="text-1_5_5">
+
+<ul>
+<li>Chrome and Firefox extension
+</li>
+<li>will refresh browser or css when file is modified
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_6" class="outline-4">
+<h4 id="sec-1_5_6">Modernizr </h4>
+<div class="outline-text-4" id="text-1_5_6">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_7" class="outline-4">
+<h4 id="sec-1_5_7">Selectivizr </h4>
+<div class="outline-text-4" id="text-1_5_7">
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_6" class="outline-3">
+<h3 id="sec-1_6">A Coding Designer's Survival Kit </h3>
+<div class="outline-text-3" id="text-1_6">
+
+
+<p>
+<a href="#thecodingdesigner.com">thecodingdesigner.com</a>
+</p>
+
+<hr/>
+<p>
+<a href="http://2011.drupalcampcolorado.org">from Drupal Camp Colorado 2011</a>
+&ndash;&mdash; 
+</p></div>
+</div>
+</div>
+<div id="postamble">
+<p class="date">Date: 2011-06-11 Sat</p>
+<p class="author">Author: Bart Lantz</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

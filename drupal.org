@@ -1,0 +1,22 @@
+* Notes on Drupal
+
+** How to create many nodes at one time with Feeds
+[[http://atendesigngroup.com/blog/drupal-imports-using-feeds-module][Drupal Imports using Feeds]]
+
+** Interesting Stackoverflow Questions
++ [[http://stackoverflow.com/questions/2569867/drupal-views-display-recent-nodes-created-by-user-on-profile-page][Display Recent Nodes Created by User on Profile page]]
+
+** Drupal Bookmarks
++ [[http://bookmarks.denvertech.org/tags.php/drupal][My Drupal Bookmarks on Scuttle]]
++ [[http://www.drupalove.com/article/100-drupal-views-tutorials-and-resources][100 Drupal Views Tutorials and Resources]]
+
+** How to Quickly Theme a View
++ [[http://stackoverflow.com/questions/77694/how-to-quickly-theme-a-view][Stackoverflow Question]]
++ [[http://views-help.doc.logrus.com/help/views/using-theme][Using Views Templates]]
+
+*** Find the Potential Views Template files 
+1. Edit the view
+2. Select the style (e.g. page, block, default)
+3. In the 'Basic Settings' block click on 'Theme: Information' to see all the different templates you can modify.
+
++ [[http://drupal.org/node/352970][Views 2 Theming - Drupal Doc]]

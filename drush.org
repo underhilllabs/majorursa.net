@@ -1,0 +1,47 @@
+* Drush Commands
+* Basic Drush 
+#+begin_example
+// Download a module or theme
+drush dl cck
+
+// Enable module or theme
+drush en cck
+
+// clear cache all, don't need sudo
+drush cc all
+
+// Get help message on command
+drush help pm-update
+
+// List site aliases
+drush sa
+
+// Get status on particular site, via site-alias
+drush @math status
+#+end_example
+
+* Advanced Drush
+** Using Drush to sync a remote server
+
+*** Sync Dev Server with Staging Server
+#+begin_example
+// drush core-rsync <source> <destination>
+drush core-rsync @dev @stage
+#+end_example
+**** see for full documentation:
+http://drush.ws/#core-rsync
+
+
+*** Download drush_extras
+#+begin_example
+drush dl drush_extras
+#+end_example
+
+*** Drush pushkey
+This command creates a ssl public/private key in your home directory
+and copies the public key to a remote server.  Subsequent drush
+commands will use this public/private key for authentication.
+#+begin_example
+// okay substitute your username for "boris" and your server for "badinoff.com"
+drush pushkey boris@badinoff.com 
+#+end_example 

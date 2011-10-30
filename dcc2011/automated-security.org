@@ -1,0 +1,100 @@
+#+TITLE:     Automated Security Reviews
+#+DATE:      2011-06-12 Sun
+#+AUTHOR:    Bart Lantz
+#+DESCRIPTION:
+#+KEYWORDS: drupal, security, sysadmin
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   ../index.html
+#+LINK_HOME: ./index.html
+#+STYLE: <link rel='stylesheet' href="http://majorursa.net/my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+* Automated Security Reviews of Drupal
++ presented by @greggles
++ Drupal Scout
+  + Open Source
+  + Dashboard
+  + Secret Sauce
+** Quick Background ..Security
+1) cross site scripting XSS
+   1) javascript doing stuff on your browser
+   2) <script>alert('xss');</script>
+   3) <img src="notfound.png" onerror="alert('xss');">
+   4) drupal_set_title
+      + drupal_set_title($node->title);
+        + doesn't check input
+      + drupal_set_title(check_plain($node->title));
+2) SQL injection
+   1) modify queries for fun and profit
+      1) vulnerable module
+         1) has a sql injection vulnerability
+         2) can use "UNION" sql command to append to db query
+3) Cross site Request Forgery: action vs intention
+4) code excecution
+5) privilege escalation
+*** Talking about drupal
+1) not web server security
+2) not network security
+
+** Steps to Automated Security Review
+
+*** tools
+1) Security Review module
+   1) Go into Settings
+      1) trusted users
+      2) select tests
+   2) drush integration
+      1) drush secrev
+
+2) check for modifications and patches
+   1) Using Revision Control
+      1) git diff
+         1) prints out line by line changes of entire 
+   2) Hacked! tool
+      1) drush hlp
+         1) prints out report
+            1) modules changed
+            2) lines changed
+            3) prints each changed line
+      2) get a diff
+         1) drush hacked-diff
+3) coder
+   1) what
+      1) static analysis for Drupal code best practises
+      2) regexp based
+   2) why
+      1) includes some security tests
+      2) shows good places to start 
+
+4) Secure Code Review
+   1) similar to coder
+   2) uses PHP tokenizer
+   3) possibly fewer false positives
+5) Vuln.module
+   1) github.com/miccolis/vuln
+   2) features, strong arm, context
+      1) found: tagadelic
+6) Drupal Scout Atomated XSS
+   1) penetration testing
+   2) Destructive
+   3) Identifies persistant xss
+7) Scout Automated CSRF
+   1) dynamic code analysis
+   2) new tool
+   3) needs some "social coding"
+   4) hipster social-coding compliant
+
+
+
+
+** slides
+
+[[http://drupalscout/node/29][Slides for presentation]]
+
+** Additional sites
+
++ [[http://drupal.org/security-team]]
++ [[http://drupalsecurityreport.com][Drupal Security Report]]
+
+-----

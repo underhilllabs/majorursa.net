@@ -1,0 +1,155 @@
+                               Orgmode
+                               =======
+
+Author: bart
+Date: 2011-05-24 Tue
+
+
+
+[http://farm6.static.flickr.com/5099/5531225678\_7ec04b52e0\_m.jpg]
+
+
+[http://farm6.static.flickr.com/5099/5531225678\_7ec04b52e0\_m.jpg]: http://farm6.static.flickr.com/5099/5531225678_7ec04b52e0_m.jpg
+
+Org-mode commands 
+==================
+  set scheduled timestamp:                                            C-c C-s           
+  set deadline timestamp:                                             C-c C-d           
+  schedule for 7 days                                                 +7                
+  realign tags on page:                                               C-u C-c C-q       
+  View todo items in a sparse tree also shows Headings one level up   C-c C-v or C-c t  
+  Open up all todo items in agenda mode                               C-c a t           
+  Rotate TODO state of current item                                   C-c C-t           
+  Insert a new TODO item below current one                            C-c C-t           
+  Archive current task                                                C-c C-x C-s       
+  Table-ize region                                                    C-c <bar>         
+
+Orgmode Export and Publishing Commands 
+=======================================
+  General Export Cmd (brings up menu)   C-c C-e    
+  Publish Current Project               C-c C-e P  
+  Publish Current File                  C-c C-e F  
+  Add Export Options Header to File     C-c C-e t  
+  
+
+custom TODO sequences 
+======================
+
+  (setq org-todo-keywords '((sequence "TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
+
+set TODO keyword sequence for a specific file 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+breaking down tasks 
+====================
+
+put [/] or [%] in a parent header and the boxes will get updated when children state changes 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+add [ ] check boxes to TODO items, toggle checkbox with 'C-c C-c' 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+log when task finished 
+=======================
+
+(setq org-log-done 'time) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+can also use '#+STARTUP: logdone' at the beginning of org file 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tags 
+=====
+
+set a tag 'C-c C-q' or 'C-c C-c' too I guess :tag:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+set alist of frequently used tags :tag:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* .emacs: (setq org-tag-alist '(("underhill" . ?u) ("denvertech" . ?d) ("household" . ?h))) 
+* in file: #+TAGS: underhill(u) denvertech(d) household(h) 
+
+Datetime 
+=========
+
+when prompted for a datetimestamp (ie C-c C-s) you can alter with following 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* +4d or +4: change to 4 days from now 
+* +2w: 2 weeks from now 
+* +2tue: 2nd Tuesday from now 
+
+if default day (today was 7-4-2010): 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 14: would set date to 7-14-2010 
+* 3: would set date to 8-3-2010 
+* Fri: nearest Friday 
+* 12:45 : would set <2010-07-04 12:45> or if its after 12:45 <2010-07-0512:45> 
+
+to set a range 
+~~~~~~~~~~~~~~~
+* <2010-07-10>--<2010-07-14> 
+
+future 
+~~~~~~~
+* 2012 w4 fri: Friday of ISO week 4 in 2012 
+
+clock-in to a task 'C-c C-x C-i' 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+clock-out: 'C-c C-x C-o' also clocks out if task is shifted to Done with C-c C-t. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cancel current clock: C-c C-x C-x 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+------
+
+Remember commands 
+------------------
+
+templates 
+==========
+(setq org-remember-templates
+   '(("Todo" ?t "* TODO %?\n  SCHEDULED: %t" "~/notes/TODO.org" "My
+   Todos")))
+
+when you call rememeber by using "C-cr", it prompts you for what template to use. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"t", will start the rememeber buffer with the todo template 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* It will open a todo item, you just need to type the todo description 
+* it is automatically scheduled for the current date 
+* when you type "\C-c\C-c" it closes the buffer saving the todo item in the file specified 
+* it also saves it under the specified header "My Todos" 
+   
+  
+  ------
+  
+
+Agenda commands 
+----------------
+
+keyboard shortcuts 
+===================
+
+"\C-ca"       --> start agenda mode 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'t'           --> cycles through todo keywords for an agenda item 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"\C-c aa"     --> agenda view 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"\C-c at"     --> todo view 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add current file to agenda files with \C-c [ 
+=============================================
+
+Remove current file from agenda with \C-c ] 
+============================================
+

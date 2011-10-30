@@ -1,0 +1,69 @@
+#+TITLE:     Views in Drupal 7
+#+AUTHOR:    Seamys Grayshanks
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS: drupal, views, webdev
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   ./index.html
+#+LINK_HOME: ../index.html
+#+XSLT:
+* Views for Drupal 7
+** You've got your content
+1) organizes
+2) responsive
+3) harmonious
+** Sites are Content or Lists of Content
+*** Lists of Content: Teasers
+** Nodes
+1) how to display your nodes?
+** Views
+1) sets your data free
+2) takes a complex programming task .. and creates a complex user task
+** Terminolgy
+*** Displays 
+different outputs of base query - page, block, xml, 
+*** clone 
+make a copy
+*** Enable/Disable
+*** Exports
+turns it into php code
+*** Imports
+import php view code
+*** Defaults 
+when you clone, defaults
+** Interaction
+1) actions have dropdowns for maore actions
+** Strategies
+1) build from scratch
+   1) use the wizard
+   2) after the wizrd
+2) clone a view and tweak
+3) add a view from a template
+* Lets build a blog page
+> structure > views
++ add a shortcut to views
+** Drupal 7 Views
+*** Settings
+**** Page
+***** Title: 
+***** can show only tagged as ... "zines", or "queer" or "lifestyle"
+***** Can add headers and footers
+***** Pager options
+***** Can add additional classes to items via views, instead of via code.
+**** Feeds
+***** Separate display in Views Menu
+***** Path
+**** Blog Block
+> Add Block
+***** HTML
+
+-----
+[[http://2011.drupalcampcolorado.org][from Drupal Camp Colorado 2011]]
+
+-----

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Views in Drupal 7</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-06-11 Sat"/>
+<meta name="author" content="bart"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Views in Drupal 7</h1>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Views for Drupal 7 </a>
+<ul>
+<li><a href="#sec-1_1">You've got your content </a></li>
+<li><a href="#sec-1_2">Sites are Content or Lists of Content </a>
+<ul>
+<li><a href="#sec-1_2_1">Lists of Content: Teasers </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_3">Nodes </a></li>
+<li><a href="#sec-1_4">Views </a></li>
+<li><a href="#sec-1_5">Terminolgy </a>
+<ul>
+<li><a href="#sec-1_5_1">Displays </a></li>
+<li><a href="#sec-1_5_2">clone </a></li>
+<li><a href="#sec-1_5_3">Enable/Disable </a></li>
+<li><a href="#sec-1_5_4">Exports </a></li>
+<li><a href="#sec-1_5_5">Imports </a></li>
+<li><a href="#sec-1_5_6">Defaults </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_6">Interaction </a></li>
+<li><a href="#sec-1_7">Strategies </a></li>
+</ul>
+</li>
+<li><a href="#sec-2">Lets build a blog page </a>
+<ul>
+<li><a href="#sec-2_1">Drupal 7 Views </a>
+<ul>
+<li><a href="#sec-2_1_1">Settings </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Views for Drupal 7 </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1_1" class="outline-3">
+<h3 id="sec-1_1">You've got your content </h3>
+<div class="outline-text-3" id="text-1_1">
+
+<ol>
+<li>organizes
+</li>
+<li>responsive
+</li>
+<li>harmonious
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_2" class="outline-3">
+<h3 id="sec-1_2">Sites are Content or Lists of Content </h3>
+<div class="outline-text-3" id="text-1_2">
+
+
+</div>
+
+<div id="outline-container-1_2_1" class="outline-4">
+<h4 id="sec-1_2_1">Lists of Content: Teasers </h4>
+<div class="outline-text-4" id="text-1_2_1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_3" class="outline-3">
+<h3 id="sec-1_3">Nodes </h3>
+<div class="outline-text-3" id="text-1_3">
+
+<ol>
+<li>how to display your nodes?
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_4" class="outline-3">
+<h3 id="sec-1_4">Views </h3>
+<div class="outline-text-3" id="text-1_4">
+
+<ol>
+<li>sets your data free
+</li>
+<li>takes a complex programming task .. and creates a complex user task
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5" class="outline-3">
+<h3 id="sec-1_5">Terminolgy </h3>
+<div class="outline-text-3" id="text-1_5">
+
+
+</div>
+
+<div id="outline-container-1_5_1" class="outline-4">
+<h4 id="sec-1_5_1">Displays </h4>
+<div class="outline-text-4" id="text-1_5_1">
+
+<p>different outputs of base query - page, block, xml, 
+</p></div>
+
+</div>
+
+<div id="outline-container-1_5_2" class="outline-4">
+<h4 id="sec-1_5_2">clone </h4>
+<div class="outline-text-4" id="text-1_5_2">
+
+<p>make a copy
+</p></div>
+
+</div>
+
+<div id="outline-container-1_5_3" class="outline-4">
+<h4 id="sec-1_5_3">Enable/Disable </h4>
+<div class="outline-text-4" id="text-1_5_3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_4" class="outline-4">
+<h4 id="sec-1_5_4">Exports </h4>
+<div class="outline-text-4" id="text-1_5_4">
+
+<p>turns it into php code
+</p></div>
+
+</div>
+
+<div id="outline-container-1_5_5" class="outline-4">
+<h4 id="sec-1_5_5">Imports </h4>
+<div class="outline-text-4" id="text-1_5_5">
+
+<p>import php view code
+</p></div>
+
+</div>
+
+<div id="outline-container-1_5_6" class="outline-4">
+<h4 id="sec-1_5_6">Defaults </h4>
+<div class="outline-text-4" id="text-1_5_6">
+
+<p>when you clone, defaults
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1_6" class="outline-3">
+<h3 id="sec-1_6">Interaction </h3>
+<div class="outline-text-3" id="text-1_6">
+
+<ol>
+<li>actions have dropdowns for maore actions
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_7" class="outline-3">
+<h3 id="sec-1_7">Strategies </h3>
+<div class="outline-text-3" id="text-1_7">
+
+<ol>
+<li>build from scratch
+<ol>
+<li>use the wizard
+</li>
+<li>after the wizrd
+</li>
+</ol>
+
+</li>
+<li>clone a view and tweak
+</li>
+<li>add a view from a template
+</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Lets build a blog page </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>&gt; structure &gt; views
+</p><ul>
+<li>add a shortcut to views
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-2_1" class="outline-3">
+<h3 id="sec-2_1">Drupal 7 Views </h3>
+<div class="outline-text-3" id="text-2_1">
+
+
+</div>
+
+<div id="outline-container-2_1_1" class="outline-4">
+<h4 id="sec-2_1_1">Settings </h4>
+<div class="outline-text-4" id="text-2_1_1">
+
+<ul>
+<li id="sec-2_1_1_1">Page <br/>
+<ul>
+<li id="sec-2_1_1_1_1">Title: <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_1_2">can show only tagged as &hellip; "zines", or "queer" or "lifestyle" <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_1_3">Can add headers and footers <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_1_4">Pager options <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_1_5">Can add additional classes to items via views, instead of via code. <br/>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_2">Feeds <br/>
+<ul>
+<li id="sec-2_1_1_2_1">Separate display in Views Menu <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_2_2">Path <br/>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li id="sec-2_1_1_3">Blog Block <br/>
+&gt; Add Block
+<ul>
+<li id="sec-2_1_1_3_1">HTML <br/>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble">
+<p class="date">Date: 2011-06-11 Sat</p>
+<p class="author">Author: bart</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

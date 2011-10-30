@@ -1,0 +1,71 @@
+#+TITLE:     Design in the Browser
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   ./index.html
+#+LINK_HOME: ../index.html
+#+XSLT:
+#+STYLE: <link rel='stylesheet' href="http://majorursa.net/my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+* Design in the Browser
++ Use CSS to stop lying to ourselves and our clients
++ How to an effing Web Designer
+** Process Before Photoshop Mockups
+*** Photoshop Mock-ups
+*** frustrating experience, non-interactive
+**** what happens when I mouse-over..
+*** Hard to Change w/ photoshop easy w/ CSS
+**** fonts, color pallete
+**** Last Minute Panic
+***** browser support, interactions, type rendering
+** CSS Mockup
+*** the design they approve is the same they get.
+*** Discover technical issues right away.
+*** Decide *together* how to go about the design
+*** Present in Browser
+** Who does it
+*** dribbble
+*** andy clarke: hard-boiled web design
+*** @owltastic
+** Design Thinking in CSS
+*** Play and Experiment
++ Experiment in Firebug
+*** Hard to do in Photoshop 
+**** What to do if this headline wraps?
+**** Have you designed for all possible list types? Tables? Form Elements?
+**** Fluid Layouts
+
+** Tools
+*** Firebug, Webkit Inspector, Firebug-lite
+*** Sass & Compass
+[[sass-lang.com]]
++ Firesass
++ SCSS
++ Variables, Nesting, Mixins, 
+*** Compass
+[[compass-style.org]]
++ Stylesheet framework built around Sass
++ built in mixins for CSS3
+*** Define css variables
+*** Livereload
++ Chrome and Firefox extension
++ will refresh browser or css when file is modified
+*** Modernizr
+*** Selectivizr
+ 
+** A Coding Designer's Survival Kit
+
+[[thecodingdesigner.com]]
+
+-----
+[[http://2011.drupalcampcolorado.org][from Drupal Camp Colorado 2011]]
+
+----- 

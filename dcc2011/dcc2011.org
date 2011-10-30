@@ -1,0 +1,35 @@
+#+TITLE:     Drupal Camp Colorado 2011
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-06-11 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP: ./index.html  
+#+LINK_HOME: ../index.html
+#+XSLT:
+#+STYLE: <link rel='stylesheet' href="http://majorursa.net/my-orgmode.css" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold' rel='stylesheet' type='text/css'/>
+
+
+
+* Drupal Sessions
+** Saturday
++ [[./typography.html][Using Web Fonts]]
++ [[./views-drupal-7.html][Views in Drupal 7]]
++ [[./design-in-the-browser.html][Designing in the Browser]]
++ [[./drupal-themeing.html][Drupal Themeing]]
++ [[./theme-preprocess.html][Theme Preprocess Functions]]
+
+** Sunday
+
++ [[./engineering-80.org][Engineering for the 80%, too]]
++ [[./security-reviews.org][Automated Security Reviews]]
+
+-----
+[[http://2011.drupalcampcolorado.org][from Drupal Camp Colorado 2011]]
+
+

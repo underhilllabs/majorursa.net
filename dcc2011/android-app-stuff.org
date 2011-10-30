@@ -1,0 +1,52 @@
+* fields for spreadsheet
+sessiondate
+sessiontime
+room
+track
+sessiontype
+sessiontitle
+sessionspeakers
+speakers
+sessionlink
+
+* fields to scrape
+tr class=odd or even
+   td class=time-label
+      td class="session occupied"
+         div class=field-track-view
+         div class=title
+           href=... <strong>$title</strong>
+         div.field-speakers-uid
+           href=/users/$user-name <strong>$name</strong>
+         div.field-experience-level
+         
+div .
+
+
+* nokogiri
+require 'nokogiri'
+require 'pp'
+
+html = <<-EOSitems=doc.xpath('//tr').map {|row| row.xpath('.//span/text()').select{|item| item.text.match(/\w+/)}.map {|item| item.text} }
+  (The HTML from the question goes here)
+EOS
+
+doc = Nokogiri::HTML(html)
+rows = doc.xpath('//table/tr')
+details = rows.collect do |row|
+  detail = {}
+  [
+    [:time, 'td[0]/text()'],
+    [:sessiontype, 'td[1]/div[0]/div[0]/text()'],
+    [:sessiontitle, 'td[1]/div[0]/div[1]/a/strong/text()'],
+    [:sessionlink, 'td[1]/div[0]/div/a/href/text()'],
+    [:sessionspeakers, 'td[1]/div[0]/div[2]/a/text()'],
+    
+    [:date, 'td[4]/text()'],
+    [:views, 'td[6]/text()'],
+  ].collect do |name, xpath|
+    detail[name] = row.at_xpath(xpath).to_s.strip
+  end
+  detail
+end
+pp details

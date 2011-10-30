@@ -1,0 +1,657 @@
+#+TITLE:     Project Euler
+#+DATE:      2011-05-25 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+* Problem 1
+*** find sum all of the multiples of 3 or 5 below 1000
+#+begin_src ruby :exports all :results output
+  count = 0
+  1.upto(999) do |i|
+    if ((i % 3 == 0) or (i % 5 == 0)) then
+        count += i
+    end
+  end
+  puts "sum is #{count}"
+#+end_src
+
+#+results:
+: sum is 233168
+
+* Problem 2
+*** sum of the even-valued fibonacci terms that are lte 4,000,000 
+#+begin_src ruby :exports all :results output
+  i = 2
+  n2 = 1
+  n1 = 2
+  total = 2
+  n = n1 + n2
+  while n <= 4000000 do
+    i += 1
+    if(n % 2 == 0) then
+      #puts "i is #{i}, n-2 is #{n2}, n-1 is #{n1}, n is #{n}"
+      total += n
+    end
+    n2 = n1
+    n1 = n
+    n = n1 + n2
+  end
+  print "total is ", total
+  
+#+end_src
+
+#+results:
+: total is 4613732
+
+***  problem 2 in c
+#+begin_html 
+<pre class="src"><code>
+ #include<stdio.h>
+int main() {
+  long int i, n2, n1, n, total;
+  i = 2L;
+  n2 = 1L;
+  n1 = 2L;
+  total = 2L;
+  n = n1 + n2;
+  while (n <= 4000000) {
+    i++;
+    // let's try even n's, instead of even i's
+    if((n % 2) == 0) {
+      //printf("i is %ld, n-2 is %ld, n-1 is %ld, n is %ld\n", i, n2, n1, n);
+      total += n;
+    }
+    n2 = n1;
+    n1 = n;
+    n = n1 + n2;
+  } 
+  printf("total is %ld, i is %ld, n is %ld, n1 is %ld, n2 is %ld\n", total, i, n, n1, n2);
+}
+
+$ ./fib_eve
+total is 4613732, i is 32, n is 5702887, n1 is 3524578, n2 is 2178309
+</code></pre>
+
+
+#+end_html
+
+
+
+* Problem 4 
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91  99.
+
++ Find the largest palindrome made from the product of two 3-digit numbers.
+#+begin_src ruby :results output :exports both
+  def is_palindrome(n)
+    # change number to string
+    n = n.to_s.split(//)
+    # get num digits to check for palindrome 
+    len = n.size/2
+    1.upto(len) do |i|
+      if n[i-1] != n[-i] then
+        return false
+      end
+    end
+    return true
+  end
+  999.downto(900) do |i|
+    999.downto(900) do |j|
+      num = i * j
+      if is_palindrome num then
+        puts "found one #{num}, its #{i} * #{j}"
+        break
+      end
+    end
+  end
+  
+#+end_src
+
+#+results:
+#+begin_example
+found one 906609, its 993 * 913
+found one 886688, its 968 * 916
+found one 888888, its 962 * 924
+found one 861168, its 932 * 924
+found one 888888, its 924 * 962
+found one 886688, its 916 * 968
+found one 824428, its 914 * 902
+found one 906609, its 913 * 993
+found one 819918, its 909 * 902
+found one 824428, its 902 * 914
+#+end_example
+
+* Problem 5:
+** Find the smallest integer that is evenly divisible by all the numbers 1..20.
+#+begin_src ruby :exports both :results output
+  def div_by_all n 
+    if n%10==0 and n%11==0 and n%12==0 and n%13==0 and n%14==0 and n%15==0 and n%16==0 and n%17==0 and n%18==0 and n%19==0 and n%20==0 then
+      return true
+    end
+    return nil
+  end
+  
+  def is_div_all n 
+    if n%10==0 and n%11==0 and n%12==0 and n%13==0 and n%14==0 and n%15==0 and n%16==0 and n%17==0 and n%18==0 and n%19==0 and n%20==0  then
+      printf "#{n} works!\n"
+    else 
+      printf "no way man\n"
+    end
+  end
+  
+  i = 2520
+  until div_by_all(i) do
+    i += 2520
+  end
+  is_div_all i
+  print "found it: #{i}\n"
+#+end_src
+
+#+results:
+: 232792560 works!
+: found it: 232792560
+
+* problem 6: 
+*** Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum
+#+begin_src ruby :exports both :results output
+  def sum_of_sq(n)
+    total = 0
+    1.upto(n) do |n|
+      total += n*n
+    end
+    return total
+  end
+  
+  def sq_of_sums(n)
+    sum = 0
+    1.upto(n) do |n|
+      sum += n
+    end
+    return sum*sum
+  end  
+  
+  ans_sqsum = sq_of_sums 100
+  ans_sumsq = sum_of_sq 100
+  ans_final = ans_sumsq - ans_sqsum
+  puts "sq of sums is #{ans_sqsum}"
+  puts "sum of squares is #{ans_sumsq}"
+  puts "difference is #{ans_final}"
+#+end_src
+
+#+results:
+: sq of sums is 25502500
+: sum of squares is 338350
+: difference is -25164150
+    
+* Problem 7
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+What is the 10001st prime number?
+#+begin_src ruby :exports code :results output
+
+#2 is first prime
+@primes = [2]
+def check_prime n 
+  @primes.each do |p|
+    return false if n%p==0
+  end
+  @primes << n
+end
+#2.upto(10) do |i|
+#  check_prime(i)
+#end
+
+i = 3
+last_prime = 0
+while @primes.length < 10001 do 
+  check_prime(i)
+  i += 2
+end 
+# @primes.each do |j|
+#   puts "#{j} is the prime!"
+# end
+last_prime = @primes[-1]
+puts "#{last_prime} is the 10,001 prime"
+
+#+end_src
+
+#+results:
+: 104743 is the 10,001 prime
+
+* Problem 8
+  CLOSED: [2011-09-03 Sat 18:49]
+Find the greatest product of five
+consecutive digits in the 1000-digit
+number.
+
+73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511
+12540698747158523863050715693290963295227443043557
+66896648950445244523161731856403098711121722383113
+62229893423380308135336276614282806444486645238749
+30358907296290491560440772390713810515859307960866
+70172427121883998797908792274921901699720888093776
+65727333001053367881220235421809751254540594752243
+52584907711670556013604839586446706324415722155397
+53697817977846174064955149290862569321978468622482
+83972241375657056057490261407972968652414535100474
+82166370484403199890008895243450658541227588666881
+16427171479924442928230863465674813919123162824586
+17866458359124566529476545682848912883142607690042
+24219022671055626321111109370544217506941658960408
+07198403850962455444362981230987879927244284909188
+84580156166097919133875499200524063689912560717606
+05886116467109405077541002256983155200055935729725
+71636269561882670428252483600823257530420752963450
+
+#+begin_src ruby :exports code 
+  nums =open("1000_dig.dat").readlines
+  nums.each do |n|
+    n.chomp!
+  end
+  
+  0.upto(nums.size-5) do |i|
+    tnums = nums[i..i+4]
+    tally = 1
+    tnums.map {|n| tally *= n.to_i}
+    if tally > largest then
+      largest = tally
+      print largest, " => ", tnums.join("*"), "!!\n"
+    end
+  end
+  
+#+end_src
+
+* Problem 11
+** given a 20x20 grid of numbers, find largest product of 4 consecutive numbers
+*** Numbers can be consecutive left, right, up, down and diagonal
+#+begin_html
+<pre class=src><code>
+
+
+# this solved euler problem #11
+biggest = 0
+# prod down
+for (i in 1:340) {
+  prod <- grid[i]*grid[i+20]*grid[i+40]*grid[i+60]
+  if (biggest <= prod) {
+    biggest <- prod
+  }
+
+}
+
+
+# prod diagonal down left
+for (i in 1:340) {
+  tmod <- i%%20
+  if(tmod > 3) {
+    prod <- grid[i]*grid[i+19]*grid[i+38]*grid[i+57]
+    if (biggest <= prod) {
+      biggest <- prod
+    }
+  }
+}
+
+
+
+# prod diagonal down right
+for (i in 1:340) {
+  tmod <- i%%20
+  if(tmod < 18) {
+    prod <- grid[i]*grid[i+21]*grid[i+42]*grid[i+63]
+    if (biggest <= prod) {
+      biggest <- prod
+    }
+  }
+}
+
+
+# prod left
+for (i in 1:397) {
+  tmod <- i%%20
+  if(tmod < 18) {
+    prod <- grid[i]*grid[i+1]*grid[i+2]*grid[i+3]
+    if (biggest <= prod) {
+      biggest <- prod
+    }
+  }
+}
+
+
+</code></pre>
+
+#+end_html
+* Problem 15: find paths from top left corner to bottom right corner of 20x20 grid
+#+begin_html
+> choose(40,20)
+#+end_html
+* problem 13
+first 10 digits of sum of following
+100 50-digit numbers [...]
+#+begin_src ruby :exports both :results output
+  # first cut and pasted numbers into
+  # txt file 'nums.txt'
+  sum = 0
+  open("./nums.txt").readlines.each do |l|
+    sum += l.to_i
+  end
+  sum_str = sum.to_s
+  puts "first 10 digits of sum: " + sum_str[0..9]
+#+end_src
+
+#+results:
+: first 10 digits of sum: 5537376230
+
+* problem 16
+sum of digits 2^1000
+#+begin_src ruby
+num  = 2**1000
+num_str = num.to_s
+
+#+end_src
+
+* problem 14
+#+begin_html 
+<pre class=src><code>
+highest=0
+for num in range(999999,500000,-1):
+  n = num
+  terms=0
+  while n > 1:
+    terms+=1
+    if n % 2 == 0:
+      n = n/2
+    else:
+      n = 3*n+1
+  terms+=1
+  if terms > highest:
+    highest = terms
+    print "found: ", highest, " from: ", num
+         
+print "Longest term is ", highest
+</code></pre>
+#+end_html
+
+* Problem 20
+Find the sum of the digits of 100!
+this is simple to do in Ruby, with
+its automatic bignum conversion
+#+begin_src ruby :results output :exports both
+
+total = 1
+# get the bignum 100!
+1.upto(100) do |n|
+  total *= n
+end
+
+# convert to string
+total_str = total.to_s
+total_arr = total_str.split(//)
+
+sum = 0
+total_arr.each do |t|
+  sum += t.to_i
+end
+
+puts sum
+#+end_src
+
+#+results:
+: 648
+
+* problem 22
+Using names.txt, a 46K
+text file containing over
+five-thousand first names, begin by
+sorting it into alphabetical
+order. Then working out the
+alphabetical value for each name,
+multiply this value by its
+alphabetical position in the list to
+obtain a name score.
+
+For example, when the list is sorted
+into alphabetical order, COLIN,
+which is worth 3 + 15 + 12 + 9 + 14
+= 53, is the 938th name in the
+list. So, COLIN would obtain a score
+of 938 53 = 49714.
+
+What is the total of all the name
+scores in the file?
+#+begin_src ruby :exports code
+  names = []
+  open("./names.txt").readlines.each do |l|
+    names[] << l.split(/","/)
+  end
+  
+  
+  total = 0
+  count = 1
+  
+  names.each do |n|
+    subtot = 0
+    n.each_byte {|c| subtot += c-?a+1}
+    total += count*subtot
+    count+=1
+  end
+  
+#+end_src
+
+* Problem 24
+** find Millionth lexicographic permutation of numbers 0,1,2,3,4,5,6,7,8,9
+#+begin_html
+<pre class=src><code>
+        // fill array with ascending numbers
+        for(i=0;i<=10;i++) {
+            nums[i]=i;
+        }
+        for (i = LAST - 1; i >= 0; i--) {
+            if (nums[i] < nums[i+1]) {   // 1
+                // swap i with l with highest index
+                for(j=LAST; j > i; j--) {
+                    if(nums[i] < nums[j]) {  // 2
+
+                        tmp = nums[i];         // 3
+                        nums[i] = nums[j];
+                        nums[j] = tmp;
+
+                        // swap array to end anagram style
+                        start = i+1;
+                        end = LAST;
+                        //diff = (end - start) / 2;
+                        while(start < end) {
+                            tmp = nums[start];
+                            nums[start] = nums[end];
+                            nums[end] = tmp;
+                            start++;
+                            end--;
+                        }
+                        
+                        // next outer for loop will decrement this to LAST-1
+                        i=LAST;
+                        //print_arr(nums);
+                        total++;
+                        // print millionth permutation
+                        if (total == 1000000) {
+                            print_arr(nums);
+                        }
+
+                    }
+                }
+            }
+        }
+
+</code></pre>
+
+#+end_html
+
+* Problem 25: first Fibonacci term to break 1000 digits
+#+begin_src python :results output :exports both 
+import math
+
+term = 3
+n2 = 1
+n1 = 1
+n = 2
+
+while(math.ceil(math.log10(n)) < 1000):
+  n2 = n1
+  n1 = n
+  n = n2 + n1
+  term+=1
+
+print "fib term:", term
+
+#+end_html
+#+end_src
+
+#+results:
+: fib term: 4782
+
+* problem 48
+last 10 digits of 1^1 + 2^2 + ... +
+1000^1000
+#+begin_src ruby :exports both :results output
+sum = 0
+1.upto(1000) do |n|
+  sum += n**n
+end
+sum_s = sum.to_s
+sum_arr = sum_s.split(//)
+puts sum_arr[-10..-1].join()
+
+#+end_src
+
+#+results:
+: 9110846700
+
+* problem 59
+** Decrypt a message XOR'd with a key
+#+begin_html
+<pre class=src><code>
+f = open("cipher1.txt')
+fstr = f.read()
+letters = fstr.split(',')
+# last element will have trailing '\r\n'
+letters = [int(i) for i in letters]
+
+#freq arrays
+freq0 = [0 for i in range(99)]
+freq1 = [0 for i in range(99)]
+freq2 = [0 for i in range(99)]
+
+# we were told that it was a three letter key
+# that's why we use 3 freq arrays and mod 3
+for i in range(len(letters)):
+   mymod = i % 3
+   if mymod == 0:
+     freq0[i]+=1
+   if mymod == 1:
+     freq1[i]+=1
+   if mymod == 2:
+     freq2[i]+=1
+
+# create an array of number from 0 to 99
+nums = [i for i in range(99)]
+zip0 = zip(freq0,nums)
+zip1 = zip(freq1,nums)
+zip2 = zip(freq2,nums)
+
+# reverse sort on frequency count
+s0 = sorted(zip0,reverse=True)
+s1 = sorted(zip1,reverse=True)
+s2 = sorted(zip2,reverse=True)
+
+# try xor'ing most frequent numbers with ord('e'), ord('t'), ord('a'), and even ord(' ')
+# >>> chr(i ^ ord('e')), chr(i+1 ^ ord('t'))  
+# if you get back the same number, then that is the key for that partition of the code
+
+# orig_acode=[ord(chr(letters[i] ^ ord("god"[i%3]))) for i in range(len(letters))]
+# orig_ascii=[chr(letters[i] ^ ord("god"[i%3])) for i in range(len(letters))]
+</code></pre>
+#+end_html
+
+
+* Unfinished
+
+
+* problem 3: What is the largest prime factor of the number 600851475143?
+
+* Problem 10
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million.
+#+begin_src ruby :results output :exports both
+
+
+#+end_src
+* problem 17 --NOT FINISHED!!--
+If the numbers 1 to 5 are written
+out in words: one, two, three, four,
+five, then there are 3 + 3 + 5 + 4 +
+4 = 19 letters used in total.  If
+all the numbers from 1 to 1000 (one
+thousand) inclusive were written out
+in words, how many letters would be
+used?
+
+one two three four five six seven
+eight nine 
+ten eleven twelve thirteen fourteen
+fifteen sixteen seventeen eighteen
+nineteen 
+twenty  
+onehundred and
+"one thousand" 
+#+begin_src ruby
+  ones = "one two three four five six seven eight nine".split()
+  puts ones.join().size
+  # 36
+  hand = "hundred and".split().join().size
+  # 10 
+  one_ten = "one two three four five six seven eight nine ten".split().join().size
+  # 39
+  teens = "eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split().join().size 
+  # 67
+  thousand = "one thousand".split().join().size
+  # 11
+  twens = "twenty thirty forty fifty sixty seventy eighty ninety".split().join.size
+  
+  
+  "twenty thirty forty fifty sixty seventy eighty ninety".split().join.size*10 + 36*9 + 67
+  # 851, one..ninetynine
+  # 8510 => above * 10 
+  # 8510 + 10*900 (hundred and) + 36*100 + 11
+  
+  twens_tot = 0
+  twens.each do |s|
+    # 36 is "one .. nine".size
+    # size of "twenty-one to ninety-nine"
+    twens_tot += 36 + s.size*10
+  end
+  # 928 (twens_tot)
+  
+  # char count one to ninety nine
+  # 1034 = 928 (twens_tot) + 39 (one .. ten) + 67 (eleven .. nineteen) 
+  
+  hundreds_count = 0
+  # "hundred and" is said 900 times 
+  ones.each do |o|
+    # "one .. nine" + "hundred and" * 100
+    hundreds_count += (ones.size + 10) * 100
+  end
+  #12600 for just "one..nine", "hundred and"
+  #12600 + 1034*10 + 11 = 22951
+  # not it!
+  
+  # 46
+  total_c = 0
+  #twenties = (twenty x 10) + 
+  
+#+end_src
+

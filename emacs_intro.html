@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Introduction to Emacs</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-05-25 Wed"/>
+<meta name="author" content="bart"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="emacs"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<h1 class="title">Introduction to Emacs</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Introduction to Emacs </a>
+<ul>
+<li><a href="#sec-1_1">Basic file commands </a>
+<ul>
+<li><a href="#sec-1_1_1">Open a new or existing file with </a></li>
+<li><a href="#sec-1_1_2">Saving the file </a></li>
+<li><a href="#sec-1_1_3">Closing the buffer </a></li>
+<li><a href="#sec-1_1_4">Save buffer to different file </a></li>
+<li><a href="#sec-1_1_5">Undo! </a></li>
+<li><a href="#sec-1_1_6">Keyboard Quit </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Introduction to Emacs </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1_1" class="outline-3">
+<h3 id="sec-1_1">Basic file commands </h3>
+<div class="outline-text-3" id="text-1_1">
+
+
+</div>
+
+<div id="outline-container-1_1_1" class="outline-4">
+<h4 id="sec-1_1_1">Open a new or existing file with </h4>
+<div class="outline-text-4" id="text-1_1_1">
+
+
+
+
+<pre class="example">C-x C-f
+</pre>
+
+
+
+<p>
+In the minibuffer you will be prompted with 
+</p>
+
+
+<pre class="example">Find File: &lt;current-path&gt;
+</pre>
+
+
+<p>
+type the path to the file and hit return and the file will be opened
+in the buffer.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_2" class="outline-4">
+<h4 id="sec-1_1_2">Saving the file </h4>
+<div class="outline-text-4" id="text-1_1_2">
+
+<p>When you are ready to save the file, type:
+</p>
+
+
+<pre class="example">C-x C-s
+</pre>
+
+
+<p>
+Emacs will write, "Wrote &lt;file&gt;" in the minibuffer.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_3" class="outline-4">
+<h4 id="sec-1_1_3">Closing the buffer </h4>
+<div class="outline-text-4" id="text-1_1_3">
+
+<p>When you are finished with a file in the current buffer, type:
+</p>
+
+
+<pre class="example">C-x k
+</pre>
+
+
+<p>
+This is the kill-buffer command.  Emacs will ask if you are sure, type
+"yes", and the buffer will be closed.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_4" class="outline-4">
+<h4 id="sec-1_1_4">Save buffer to different file </h4>
+<div class="outline-text-4" id="text-1_1_4">
+
+<p>If you ever need to save a buffer you are working on as a different
+file name, type:
+</p>
+
+
+<pre class="example">C-x C-w
+</pre>
+
+
+<p>
+Emacs will prompt for a different file name in the mini-buffer.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_5" class="outline-4">
+<h4 id="sec-1_1_5">Undo! </h4>
+<div class="outline-text-4" id="text-1_1_5">
+
+<p>If you ever need to undo an edit you've made or a mistake, type:
+</p>
+
+
+<pre class="example">C-_ 
+or 
+C-x u
+or, even
+C-/
+</pre>
+
+
+<p>
+Obviously undo is a popular command!  Any of these key combinations
+will work. It may be easiest to remember C-x u, stands for undo.  Also
+later I will show you how to customize emacs so you can bind C-z to
+undo as well, if you are accustomed to that combination from other
+programs.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_6" class="outline-4">
+<h4 id="sec-1_1_6">Keyboard Quit </h4>
+<div class="outline-text-4" id="text-1_1_6">
+
+<p>There is another handy command, for when you start a key combination
+or something else like accidentally hitting close emacs, and you want
+to get out of it.  Just type:
+</p>
+
+
+<pre class="example">C-g
+</pre>
+
+
+<p>
+This is the keyboard-quit command and it will quit out of anything
+started in the mini-buffer.  You may have to hit C-g a couple times to
+fully stop something that emacs has started.
+</p></div>
+</div>
+</div>
+</div>
+<div id="postamble">
+<p class="date">Date: 2011-05-25 Wed</p>
+<p class="author">Author: bart</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

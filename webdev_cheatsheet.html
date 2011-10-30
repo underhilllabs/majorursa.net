@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Webdev Cheatsheet</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-07-03 Sun"/>
+<meta name="author" content="bart"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<h1 class="title">Webdev Cheatsheet</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Common Unix Commands </a>
+<ul>
+<li><a href="#sec-1_1">Change the permissions on a file with chmod </a></li>
+<li><a href="#sec-1_2">Change Owner of File </a></li>
+<li><a href="#sec-1_3">See what user you are logged in as </a></li>
+<li><a href="#sec-1_4">Search for a File on the Server </a></li>
+<li><a href="#sec-1_5">use Grep to search all files in current directory for pattern </a></li>
+<li><a href="#sec-1_6">History Shows Your Command History </a></li>
+<li><a href="#sec-1_7">search history for a specific command you ran with grep </a></li>
+<li><a href="#sec-1_8">download and uncompress a file </a></li>
+<li><a href="#sec-1_9">edit cron </a></li>
+</ul>
+</li>
+<li><a href="#sec-2">Apache Configuration </a>
+<ul>
+<li><a href="#sec-2_1">Add a new VirtualHost to the Apache Config file </a></li>
+<li><a href="#sec-2_2">A simple VirtualHost entry </a></li>
+<li><a href="#sec-2_3">A VirtualHost for a Drupal Site </a></li>
+<li><a href="#sec-2_4">Gracefully Restart Apache webserver </a></li>
+</ul>
+</li>
+<li><a href="#sec-3">Mysql </a>
+<ul>
+<li><a href="#sec-3_1">Sign in to Mysql </a></li>
+<li><a href="#sec-3_2">Create a new Database </a></li>
+<li><a href="#sec-3_3">Create a New User and Grant Privileges on derailer Database </a></li>
+<li><a href="#sec-3_4">Back Up a Mysql Database </a></li>
+<li><a href="#sec-3_5">Restore a Mysql Database from a Backup </a></li>
+</ul>
+</li>
+<li><a href="#sec-4">DNS </a>
+<ul>
+<li><a href="#sec-4_1">A DNS entry </a></li>
+</ul>
+</li>
+<li><a href="#sec-5">Bash aliases </a></li>
+<li><a href="#sec-6">Drush Commands </a>
+<ul>
+<li><a href="#sec-6_1">drush </a></li>
+</ul>
+</li>
+<li><a href="#sec-7">vi Commands </a>
+<ul>
+<li><a href="#sec-7_1">more vi cheatsheets </a></li>
+</ul>
+</li>
+<li><a href="#sec-8">Debian System Administration </a>
+<ul>
+<li><a href="#sec-8_1">Install Apache Webserver, PHP and MYSQL on Debian Server </a></li>
+</ul>
+</li>
+<li><a href="#sec-9">Browser Plugins </a>
+<ul>
+<li><a href="#sec-9_1">Firefox </a></li>
+<li><a href="#sec-9_2">Chrome </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Common Unix Commands </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1_1" class="outline-3">
+<h3 id="sec-1_1">Change the permissions on a file with chmod </h3>
+<div class="outline-text-3" id="text-1_1">
+
+<p>Allow all users write permissions to the file settings.php
+</p>
+
+
+<pre class="example">sudo chmod a+w settings.php
+</pre>
+
+
+
+<p>
+Allow only owner (user) of file write permissions to file
+</p>
+
+
+<pre class="example">sudo chmod a-w settings.php
+sudo chmod u+w settings.php 
+</pre>
+
+
+<ul>
+<li id="sec-1_1_1">more reading <br/>
+<a href="http://catcode.com/teachmod/">see this chmod tutorial</a>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1_2" class="outline-3">
+<h3 id="sec-1_2">Change Owner of File </h3>
+<div class="outline-text-3" id="text-1_2">
+
+
+
+
+<pre class="example">sudo chown moe secret-codes.txt.pgp
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3" class="outline-3">
+<h3 id="sec-1_3">See what user you are logged in as </h3>
+<div class="outline-text-3" id="text-1_3">
+
+
+
+
+<pre class="example">$ whoami
+batman
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_4" class="outline-3">
+<h3 id="sec-1_4">Search for a File on the Server </h3>
+<div class="outline-text-3" id="text-1_4">
+
+<p>for example seach all of the files on server for a file named, "httpd.conf"
+</p>
+
+
+<pre class="example">sudo find / -name httpd.conf -print
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5" class="outline-3">
+<h3 id="sec-1_5">use Grep to search all files in current directory for pattern </h3>
+<div class="outline-text-3" id="text-1_5">
+
+
+
+
+<pre class="example">grep 'VirtualHost' *
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_6" class="outline-3">
+<h3 id="sec-1_6">History Shows Your Command History </h3>
+<div class="outline-text-3" id="text-1_6">
+
+
+
+
+<pre class="example">history 
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_7" class="outline-3">
+<h3 id="sec-1_7">search history for a specific command you ran with grep </h3>
+<div class="outline-text-3" id="text-1_7">
+
+
+
+
+<pre class="example">history | grep mysqldump
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_8" class="outline-3">
+<h3 id="sec-1_8">download and uncompress a file </h3>
+<div class="outline-text-3" id="text-1_8">
+
+
+
+
+<pre class="example">sudo wget http
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1_9" class="outline-3">
+<h3 id="sec-1_9">edit cron </h3>
+<div class="outline-text-3" id="text-1_9">
+
+
+
+
+<pre class="example">crontab -e
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Apache Configuration </h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2_1" class="outline-3">
+<h3 id="sec-2_1">Add a new VirtualHost to the Apache Config file </h3>
+<div class="outline-text-3" id="text-2_1">
+
+
+
+
+<pre class="example">sudo vi /etc/apache2/sites-available/default
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2_2" class="outline-3">
+<h3 id="sec-2_2">A simple VirtualHost entry </h3>
+<div class="outline-text-3" id="text-2_2">
+
+
+
+
+<pre class="example">&lt;VirtualHost *:80&gt;  
+  ServerName majorursa.net
+  ServerAlias www.majorursa.net
+  DocumentRoot /var/www/majorursalia/
+&lt;/VirtualHost&gt;   
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2_3" class="outline-3">
+<h3 id="sec-2_3">A VirtualHost for a Drupal Site </h3>
+<div class="outline-text-3" id="text-2_3">
+
+
+
+
+<pre class="example">&lt;VirtualHost *:80&gt;  
+  ServerName majorursa.net
+  ServerAlias www.majorursa.net
+  DocumentRoot /var/www/majorursalia/drupal-6.22
+  &lt;Directory /var/www/majorursalia/drupal-6.22/&gt;
+    AllowOverride All
+    Options None
+    Order allow,deny
+    Allow from all
+  &lt;/Directory&gt; 
+&lt;/VirtualHost&gt;   
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2_4" class="outline-3">
+<h3 id="sec-2_4">Gracefully Restart Apache webserver </h3>
+<div class="outline-text-3" id="text-2_4">
+
+
+
+
+<pre class="example">sudo apache2ctl graceful
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Mysql </h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3_1" class="outline-3">
+<h3 id="sec-3_1">Sign in to Mysql </h3>
+<div class="outline-text-3" id="text-3_1">
+
+
+
+
+<pre class="example">mysql -uroot -p 
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3_2" class="outline-3">
+<h3 id="sec-3_2">Create a new Database </h3>
+<div class="outline-text-3" id="text-3_2">
+
+<p>In this case a database called derailer.
+</p>
+
+
+<pre class="example">create database derailer
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3_3" class="outline-3">
+<h3 id="sec-3_3">Create a New User and Grant Privileges on derailer Database </h3>
+<div class="outline-text-3" id="text-3_3">
+
+
+
+
+<pre class="example">create user 'moe'@'localhost' identified by 'tuff-!@#?ing-passwword';
+GRANT ALL PRIVILEGES ON derailer.* to 'moe'@'localhost' identified by 'tuff-!@#?ing-passwword';
+flush privileges;
+\q
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3_4" class="outline-3">
+<h3 id="sec-3_4">Back Up a Mysql Database </h3>
+<div class="outline-text-3" id="text-3_4">
+
+<p>The following commands runs mysqldump as user "moe" and backs up "derailer" db to file derailer-backup.sql
+</p>
+
+
+<pre class="example">mysqldump -umoe -p derailer &gt; derailer-backup.sql
+</pre>
+
+
+<ul>
+<li id="sec-3_4_1">Should have a script that does this at least once a week, and is launched via cron <br/>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-3_5" class="outline-3">
+<h3 id="sec-3_5">Restore a Mysql Database from a Backup </h3>
+<div class="outline-text-3" id="text-3_5">
+
+<p>This command will restore database from backup made in previous section.
+</p>
+
+
+<pre class="example">mysql -umoe -p derailer &lt; derailer-backup.sql
+</pre>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">DNS </h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4_1" class="outline-3">
+<h3 id="sec-4_1">A DNS entry </h3>
+<div class="outline-text-3" id="text-4_1">
+
+<p>&lt;subdomain-name&gt; &lt;time to cache&gt; &lt;protocol: "in"=internet&gt; &lt;"a" record points at IP address&gt; &lt;ip-address&gt;
+</p>
+
+
+<pre class="example">courtwatch 10800 IN A 173.230.154.132
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Bash aliases </h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li>this is .bashrc on linux
+</li>
+<li>.bash_profile on Mac OSX
+</li>
+</ul>
+
+<p>add an alias to ssh to server
+</p>
+
+
+<pre class="example">alias dtech 'ssh moe@denvertech.org'
+</pre>
+
+
+
+<p>
+add alias on server to get to drupal directory
+</p>
+
+
+<pre class="example">alias mu 'cd /var/www/majorursalia/drupal-6.22/'
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Drush Commands </h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6_1" class="outline-3">
+<h3 id="sec-6_1">drush </h3>
+<div class="outline-text-3" id="text-6_1">
+
+
+
+
+<pre class="example">// Download a module or theme
+sudo drush dl cck
+// Enable module or theme
+sudo drush en cck
+// clear cache all, don't need sudo
+drush cc all
+// Get help message on command
+drush help pm-update
+// List site aliases
+drush sa
+// Get status on particular site, via site-alias
+drush @math status
+</pre>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">vi Commands </h2>
+<div class="outline-text-2" id="text-7">
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">vi key combo</th><th scope="col" class="left">command</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">:q!</td><td class="left">quit without saving</td></tr>
+<tr><td class="left">:wq</td><td class="left">write and quit</td></tr>
+<tr><td class="left">:q</td><td class="left">quit</td></tr>
+<tr><td class="left">:%s/oldword/newword/g</td><td class="left">substitute all oldword occurences with newword in entire file</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">dw</td><td class="left">delete word</td></tr>
+<tr><td class="left">d$</td><td class="left">delete to end of line</td></tr>
+<tr><td class="left">dd</td><td class="left">delete current line</td></tr>
+<tr><td class="left">.</td><td class="left">repeat last change</td></tr>
+<tr><td class="left">yy</td><td class="left">copy, yank line into buffer</td></tr>
+<tr><td class="left">p</td><td class="left">paste the line in buffer after cursor position</td></tr>
+<tr><td class="left">cw</td><td class="left">change word</td></tr>
+<tr><td class="left">u</td><td class="left">undo!</td></tr>
+<tr><td class="left">i</td><td class="left">insert mode</td></tr>
+<tr><td class="left">&lt;Esc&gt;</td><td class="left">escape, exit insert mode</td></tr>
+<tr><td class="left">/VirtualHost</td><td class="left">search file for phrase "VirtualHost"</td></tr>
+<tr><td class="left">n</td><td class="left">move to next occurence of search phrase</td></tr>
+<tr><td class="left">100G</td><td class="left">move to 100th line</td></tr>
+<tr><td class="left">1G</td><td class="left">move to first line</td></tr>
+<tr><td class="left">G</td><td class="left">move to last line</td></tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+
+<div id="outline-container-7_1" class="outline-3">
+<h3 id="sec-7_1">more vi cheatsheets </h3>
+<div class="outline-text-3" id="text-7_1">
+
+
+<p>
+<a href="http://www.washington.edu/computing/unix/viqr.html">http://www.washington.edu/computing/unix/viqr.html</a>
+</p>
+<p>
+<a href="http://www.lagmonster.org/docs/vi.html">http://www.lagmonster.org/docs/vi.html</a>
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Debian System Administration </h2>
+<div class="outline-text-2" id="text-8">
+
+
+</div>
+
+<div id="outline-container-8_1" class="outline-3">
+<h3 id="sec-8_1">Install Apache Webserver, PHP and MYSQL on Debian Server </h3>
+<div class="outline-text-3" id="text-8_1">
+
+<p>This is nice and simple thanks to Debian's brilliant package management system apt-get.
+</p>
+
+
+<pre class="example">sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install apache2 apache2-doc apache2-utils
+sudo apt-get install libapache2-mod-php5 php5 php-pear php5-xcache
+sudo apt-get install php5-suhosin
+sudo apt-get install php5-mysql
+sudo apt-get install mysql-server libmysqlclient16 libmysqlclient-dev mysql-client mysql-common
+</pre>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Browser Plugins </h2>
+<div class="outline-text-2" id="text-9">
+
+
+</div>
+
+<div id="outline-container-9_1" class="outline-3">
+<h3 id="sec-9_1">Firefox </h3>
+<div class="outline-text-3" id="text-9_1">
+
+<ul>
+<li id="sec-9_1_1">Firebug plugin <br/>
+<ul>
+<li>hit F12 to pull up interface
+</li>
+</ul>
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-9_2" class="outline-3">
+<h3 id="sec-9_2">Chrome </h3>
+<div class="outline-text-3" id="text-9_2">
+
+<ul>
+<li id="sec-9_2_1">Developer Tools <br/>
+<ul>
+<li>hit F12 to pull up and dismiss interface
+</li>
+<li>right click on element and select inspect element from menu
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<hr/>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble">
+<p class="date">Date: 2011-07-03 Sun</p>
+<p class="author">Author: bart</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

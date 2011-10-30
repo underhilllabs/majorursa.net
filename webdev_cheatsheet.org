@@ -1,0 +1,344 @@
+#+TITLE:     Webdev Cheatsheet
+#+AUTHOR:    Bart Lantz
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-07-03 Sun
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:nil LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+* Check the Apache Log for Errors
+#+begin_example
+  sudo tail -f /var/log/apache2/error.log 
+#+end_example
+
+* Common Unix Commands
+** Change the permissions on a file with chmod
+Allow all users write permissions to the file settings.php
+#+begin_example
+sudo chmod a+w settings.php
+#+end_example
+
+Allow only owner (user) of file write permissions to file
+#+begin_example
+sudo chmod a-w settings.php
+sudo chmod u+w settings.php 
+#+end_example
+*** more reading
+[[http://catcode.com/teachmod/][see this chmod tutorial]]
+
+** Change Owner of File
+chown <username> <filename>
+#+begin_example
+sudo chown moe secret-codes.txt.pgp
+#+end_example
+
+** See what user you are logged in as
+#+begin_example
+$ whoami
+batman
+#+end_example
+
+** Search for a File on the Server 
+for example seach all of the files on server for a file named, "httpd.conf"
+#+begin_example
+sudo find / -name httpd.conf -print
+#+end_example
+
+** use Grep to search all files in current directory for pattern
+#+begin_example
+grep 'VirtualHost' *
+#+end_example
+
+** History Shows Your Command History
+#+begin_example
+history 
+#+end_example
+
+** search history for a specific command you ran with grep
+#+begin_example
+history | grep mysqldump
+#+end_example
+
+** download and uncompress a file
+#+begin_example
+sudo wget http
+#+end_example
+
+** edit cron
+#+begin_example
+crontab -e
+#+end_example
+
+** pushd 
+*** pushd <directory>
+this adds a directory to the stack and cd's into that directory
+*** dir -v
+this lists the directory stack 
+#+begin_example
+$ dirs -v
+ 0  /var/www/knitsy/drupal-7.7
+ 1  /etc/apache2/sites-available
+ 2  ~/public_html/mu
+ 3  ~
+ 4  /var/www/theprecarious/drupal-7.7
+#+end_example
+*** cd ~2
+this cds into the 3rd directory on the stack
+
+* Apache Configuration
+** Add a new VirtualHost to the Apache Config file
+#+begin_example
+sudo vi /etc/apache2/sites-available/default
+#+end_example
+
+** A simple VirtualHost entry
+#+begin_example
+<VirtualHost *:80>  
+  ServerName majorursa.net
+  ServerAlias www.majorursa.net
+  DocumentRoot /var/www/majorursalia/
+</VirtualHost>   
+#+end_example
+
+** A VirtualHost for a Drupal Site
+#+begin_example
+<VirtualHost *:80>  
+  ServerName majorursa.net
+  ServerAlias www.majorursa.net
+  DocumentRoot /var/www/majorursalia/drupal-6.22
+  <Directory /var/www/majorursalia/drupal-6.22/>
+    AllowOverride All
+    Options None
+    Order allow,deny
+    Allow from all
+  </Directory> 
+</VirtualHost>   
+#+end_example
+
+** Gracefully Restart Apache webserver
+#+begin_example
+sudo apache2ctl graceful
+#+end_example
+
+* Mysql
+** Sign in to Mysql 
+#+begin_example
+mysql -uroot -p 
+#+end_example
+
+** Create a new Database
+In this case a database called derailer.
+#+begin_example
+create database derailer
+#+end_example
+
+** Create a New User and Grant Privileges on derailer Database
+#+begin_example
+create user 'moe'@'localhost' identified by 'tuff-!@#?ing-passwword';
+GRANT ALL PRIVILEGES ON derailer.* to 'moe'@'localhost' identified by 'tuff-!@#?ing-passwword';
+flush privileges;
+\q
+#+end_example
+
+** Back Up a Mysql Database 
+The following commands runs mysqldump as user "moe" and backs up "derailer" db to file derailer-backup.sql
+#+begin_example
+mysqldump -umoe -p derailer > derailer-backup.sql
+#+end_example
+*** Should have a script that does this at least once a week, and is launched via cron
+
+** Restore a Mysql Database from a Backup
+This command will restore database from backup made in previous section.
+#+begin_example
+mysql -umoe -p derailer < derailer-backup.sql
+#+end_example
+
+
+* DNS
+** A DNS entry 
+<subdomain-name> <time to cache> <protocol: "in"=internet> <"a" record points at IP address> <ip-address>
+#+begin_example
+courtwatch 10800 IN A 173.230.154.132
+#+end_example
+** Check DNS entry exists or is up
+#+begin_example
+> host -a majorursa.net
+
+the A record is the IP address for the domain
+the NS records are the Name Servers for the domain
+the MX records are the mail server for the domain
+#+end_example
+
+* Bash aliases
++ this is .bashrc on linux
++ .bash_profile on Mac OSX
+add an alias to ssh to server
+#+begin_example
+alias dtech 'ssh moe@denvertech.org'
+#+end_example
+
+add alias on server to get to drupal directory
+#+begin_example
+alias mu 'cd /var/www/majorursalia/drupal-6.22/'
+#+end_example
+
+
+* Drush Commands
+** drush 
+#+begin_example
+// Download a module or theme
+sudo drush dl cck
+// Enable module or theme
+sudo drush en cck
+// clear cache all, don't need sudo
+drush cc all
+// Get help message on command
+drush help pm-update
+// List site aliases
+drush sa
+// Get status on particular site, via site-alias
+drush @math status
+#+end_example
+#+TITLE:     Major Ursa Tech Collective
+#+DESCRIPTION:
+#+KEYWORDS: emacs, orgmode, hacker, ruby, rails, drupal, R
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+
+
+http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
+
+
+
+
+** Drupal
++ [[./drush.org][Drush Notes]]
++ [[./drupal.org][Drupal Notes]]
++ [[./dcc2011/index.org][Notes from Drupal Camp Colorado]]
+
+** Web Development
++ [[./webdev_cheatsheet.org][Web Dev Cheatsheet]]
++ [[./chrome.org][Chrome Notes]]
++ [[./apache.org][Apache Stuff]]
+
+** System Administration
++ [[./netstat.org][Using Netstat]]
++ [[./dns.org][DNS]]
+
+
+** Emacs Pages
++ [[./emacs_cheatsheet.org][My Emacs cheatsheet]]
++ [[./elisp_notes.org][Emacs Lisp Notes]]
++ [[./transpose_windows.html][Writing an Emacs Command]]
+
+** R stuff
++ [[./r-intro.html][R Introduction]]
++ [[./r-emacs.html][R, Emacs and Org-mode]]
++ [[./data.org][Tools For Working with Data]]
+
+** Org-mode
++ [[./orgmode.html][my Orgmode notes]]
++ [[./zombies.org][Emacs, Orgmode and Zombies]]
+
+** Ruby Pages
++ [[./rails_notes.org][My notes on Ruby and Rails]]
+** Cryptography
++ [[./shift.html][Caesar Shift Cipher]]
++ [[./vigenere.html][Vigenere Cipher]]
+
+
+------
+* vi Commands
+
+| vi key combo          | command                                                       |
+|-----------------------+---------------------------------------------------------------|
+| :q!                   | quit without saving                                           |
+| :wq                   | write and quit                                                |
+| :q                    | quit                                                          |
+| :%s/oldword/newword/g | substitute all oldword occurences with newword in entire file |
+|-----------------------+---------------------------------------------------------------|
+| dw                    | delete word                                                   |
+| d$                    | delete to end of line                                         |
+| dd                    | delete current line                                           |
+| .                     | repeat last change                                            |
+| yy                    | copy, yank line into buffer                                   |
+| p                     | paste the line in buffer after cursor position                |
+| cw                    | change word                                                   |
+| u                     | undo!                                                         |
+| i                     | insert mode                                                   |
+| <Esc>                 | escape, exit insert mode                                      |
+| /VirtualHost          | search file for phrase "VirtualHost"                          |
+| n                     | move to next occurence of search phrase                       |
+| 100G                  | move to 100th line                                            |
+| 1G                    | move to first line                                            |
+| G                     | move to last line                                             |
+
+
+** more vi cheatsheets
+
+http://www.washington.edu/computing/unix/viqr.html
+
+http://www.lagmonster.org/docs/vi.html
+
+* Debian System Administration
+** Install Apache Webserver, PHP and MYSQL on Debian Server
+This is nice and simple thanks to Debian's brilliant package management system apt-get.
+#+begin_example
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install apache2 apache2-doc apache2-utils
+sudo apt-get install libapache2-mod-php5 php5 php-pear php5-xcache
+sudo apt-get install php5-suhosin
+sudo apt-get install php5-mysql
+sudo apt-get install mysql-server libmysqlclient16 libmysqlclient-dev mysql-client mysql-common
+#+end_example
+
+
+
+* Browser Plugins
+** Firefox
+*** Firebug plugin
++ hit F12 to pull up interface 
+** Chrome
+*** Developer Tools
++ hit F12 to pull up and dismiss interface (or S-C-i)
++ right click on element and select inspect element from menu
+*** Manipulate CSS on the Fly
++ Double click in the CSS pane of elements menu to change CSS property.
++ Tab completion: hit tab for tab completion
++ To add a new element to css, click on gear menu at top of CSS menu.
++ Developer Tools keeps track of revisions, any css file with an arrow
+  by it, has a revision history of your changes
+  + To see revision, click the Resources tab, any css files listed
+    with arrow next to name, have revision history.
+    + If you click on a file name, the css file will be displayed and
+      any changes from original will be highlighted.
+  + Right click on it, and select "Save as.." to save a revision of
+    the css file.
+  + Drag and drop the revision into most editors.
+  + You can right click on a revision to revert to that version of the
+    CSS history.
+*** Command Line API
+**** dir()
+**** inspect()
+**** $0
+**** copy()
+*** further reading/viewing
+http://code.google.com/chrome/devtools/docs/elements-styles.html
+
+[[http://www.youtube.com/watch?v=N8SS-rUEZPg][Google Developer Tools Reloaded -- Google IO 2011]]
+
+
+
+
+
+-----

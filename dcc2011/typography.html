@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Modern Web Typography</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-06-11 Sat"/>
+<meta name="author" content="Bart Lantz"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="drupal.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<h1 class="title">Modern Web Typography</h1>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Modern Web Typography </a>
+<ul>
+<li><a href="#sec-1_1">History of Fonts on the web </a>
+<ul>
+<li><a href="#sec-1_1_1">&lt;FONT&gt; tag </a></li>
+<li><a href="#sec-1_1_2">Image Replacement </a></li>
+<li><a href="#sec-1_1_3">sIFR </a></li>
+<li><a href="#sec-1_1_4">cufon </a></li>
+<li><a href="#sec-1_1_5">web fonts using @font-face </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_2">Font-face syntax </a>
+<ul>
+<li><a href="#sec-1_2_1">css file </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_3">Selecting Font </a>
+<ul>
+<li><a href="#sec-1_3_1">No Rules </a></li>
+<li><a href="#sec-1_3_2">Display Faces </a></li>
+<li><a href="#sec-1_3_3">good site examples </a></li>
+<li><a href="#sec-1_3_4">Browser Issues </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_4">Tools to help with font </a>
+<ul>
+<li><a href="#sec-1_4_1">Jquery plugins </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_5">Sources for Web Fonts </a>
+<ul>
+<li><a href="#sec-1_5_1">Typekit.com </a></li>
+<li><a href="#sec-1_5_2">google.com/webfonts </a></li>
+<li><a href="#sec-1_5_3">kernest.com </a></li>
+<li><a href="#sec-1_5_4">font squirrel (.com) </a></li>
+</ul>
+</li>
+<li><a href="#sec-1_6">How to Use Fonts in Drupal </a>
+<ul>
+<li><a href="#sec-1_6_1">Directly in Themes </a></li>
+<li><a href="#sec-1_6_2">Drupal Modules </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Modern Web Typography </h2>
+<div class="outline-text-2" id="text-1">
+
+
+
+</div>
+
+<div id="outline-container-1_1" class="outline-3">
+<h3 id="sec-1_1">History of Fonts on the web </h3>
+<div class="outline-text-3" id="text-1_1">
+
+
+</div>
+
+<div id="outline-container-1_1_1" class="outline-4">
+<h4 id="sec-1_1_1">&lt;FONT&gt; tag </h4>
+<div class="outline-text-4" id="text-1_1_1">
+
+<p>could customize fonts: size, color, face
+</p></div>
+
+</div>
+
+<div id="outline-container-1_1_2" class="outline-4">
+<h4 id="sec-1_1_2">Image Replacement </h4>
+<div class="outline-text-4" id="text-1_1_2">
+
+<p>hide text, and use images instead
+</p><ul>
+<li id="sec-1_1_2_1">no images, can't read <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_1_2_2">heavy pages <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_1_2_3">lot of work <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_3" class="outline-4">
+<h4 id="sec-1_1_3">sIFR </h4>
+<div class="outline-text-4" id="text-1_1_3">
+
+<ul>
+<li id="sec-1_1_3_1">use flash for font, gross&hellip; <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_1_3_2">text wasn't selectable <br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1_1_4" class="outline-4">
+<h4 id="sec-1_1_4">cufon </h4>
+<div class="outline-text-4" id="text-1_1_4">
+
+<p>??what what
+</p></div>
+
+</div>
+
+<div id="outline-container-1_1_5" class="outline-4">
+<h4 id="sec-1_1_5">web fonts using @font-face </h4>
+<div class="outline-text-4" id="text-1_1_5">
+
+<ol>
+<li>introduced in IE 4
+</li>
+<li>adopted by CSS 2
+</li>
+<li>removed in 2.2.1
+</li>
+<li>finally added by browsers 2 years ago
+</li>
+</ol>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_2" class="outline-3">
+<h3 id="sec-1_2">Font-face syntax </h3>
+<div class="outline-text-3" id="text-1_2">
+
+
+</div>
+
+<div id="outline-container-1_2_1" class="outline-4">
+<h4 id="sec-1_2_1">css file </h4>
+<div class="outline-text-4" id="text-1_2_1">
+
+
+  <pre>
+  @font-face {
+    font-family: 'MyWebFont';
+    /* IE9 ... */ 
+    src: url('webfont.eot');
+    src: 
+     /* ... font declarations for every fricking browser */
+     /* Modern Browsers */
+     url('webfont.woff') format('woff');
+  }
+  </pre>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_3" class="outline-3">
+<h3 id="sec-1_3">Selecting Font </h3>
+<div class="outline-text-3" id="text-1_3">
+
+
+</div>
+
+<div id="outline-container-1_3_1" class="outline-4">
+<h4 id="sec-1_3_1">No Rules </h4>
+<div class="outline-text-4" id="text-1_3_1">
+
+<ul>
+<li>except that Comic Sans and Papyrus are terrible
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3_2" class="outline-4">
+<h4 id="sec-1_3_2">Display Faces </h4>
+<div class="outline-text-4" id="text-1_3_2">
+
+<ul>
+<li>Good for Headlines, bad for body text
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3_3" class="outline-4">
+<h4 id="sec-1_3_3">good site examples </h4>
+<div class="outline-text-4" id="text-1_3_3">
+
+<ol>
+<li>lostworldsfairs.com
+</li>
+<li>austinbeerworks.com
+</li>
+<li>denver2012.drupal.org
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_3_4" class="outline-4">
+<h4 id="sec-1_3_4">Browser Issues </h4>
+<div class="outline-text-4" id="text-1_3_4">
+
+<ul>
+<li id="sec-1_3_4_1">FOUT <br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1_3_4_2">Hinting <br/>
+<ul>
+<li>How a font is rendered on different browsers
+<ul>
+<li>some browsers are weighted heavier
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_4" class="outline-3">
+<h3 id="sec-1_4">Tools to help with font </h3>
+<div class="outline-text-3" id="text-1_4">
+
+
+</div>
+
+<div id="outline-container-1_4_1" class="outline-4">
+<h4 id="sec-1_4_1">Jquery plugins </h4>
+<div class="outline-text-4" id="text-1_4_1">
+
+<ul>
+<li id="sec-1_4_1_1">lettering.js <br/>
+<ul>
+<li>a jquery plugin for radical web typography
+</li>
+</ul>
+
+</li>
+</ul>
+<ul>
+<li id="sec-1_4_1_2">fitText <br/>
+<ul>
+<li>jquery for inflating web text
+</li>
+</ul>
+
+</li>
+</ul>
+<ul>
+<li id="sec-1_4_1_3">kern.js <br/>
+
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_5" class="outline-3">
+<h3 id="sec-1_5">Sources for Web Fonts </h3>
+<div class="outline-text-3" id="text-1_5">
+
+
+</div>
+
+<div id="outline-container-1_5_1" class="outline-4">
+<h4 id="sec-1_5_1">Typekit.com </h4>
+<div class="outline-text-4" id="text-1_5_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_2" class="outline-4">
+<h4 id="sec-1_5_2">google.com/webfonts </h4>
+<div class="outline-text-4" id="text-1_5_2">
+
+<ul>
+<li>free and open source
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_3" class="outline-4">
+<h4 id="sec-1_5_3">kernest.com </h4>
+<div class="outline-text-4" id="text-1_5_3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_5_4" class="outline-4">
+<h4 id="sec-1_5_4">font squirrel (.com) </h4>
+<div class="outline-text-4" id="text-1_5_4">
+
+<ul>
+<li>Have a Font-Face Generator
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1_6" class="outline-3">
+<h3 id="sec-1_6">How to Use Fonts in Drupal </h3>
+<div class="outline-text-3" id="text-1_6">
+
+
+</div>
+
+<div id="outline-container-1_6_1" class="outline-4">
+<h4 id="sec-1_6_1">Directly in Themes </h4>
+<div class="outline-text-4" id="text-1_6_1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1_6_2" class="outline-4">
+<h4 id="sec-1_6_2">Drupal Modules </h4>
+<div class="outline-text-4" id="text-1_6_2">
+
+<ul>
+<li id="sec-1_6_2_1">Google Fonts API <br/>
+<ul>
+<li>great for using Google Fonts
+</li>
+</ul>
+
+</li>
+</ul>
+<ul>
+<li id="sec-1_6_2_2">@font-your-face <br/>
+<ul>
+<li>can preview fonts in modules 
+</li>
+</ul>
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble">
+<p class="date">Date: 2011-06-11 Sat</p>
+<p class="author">Author: Bart Lantz</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

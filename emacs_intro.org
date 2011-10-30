@@ -1,0 +1,144 @@
+#+TITLE:     Introduction to Emacs
+#+AUTHOR:    bart
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-05-25 Wed
+#+DESCRIPTION:
+#+KEYWORDS: emacs
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+* Introduction to Emacs
+** Basic file commands
+*** Open a new or existing file with 
+#+begin_example
+C-x C-f
+#+end_example
+
+In the minibuffer you will be prompted with 
+#+begin_example
+Find File: <current-path>
+#+end_example
+type the path to the file and hit return and the file will be opened
+in the buffer.
+
+*** Saving the file
+When you are ready to save the file, type:
+#+begin_example
+C-x C-s
+#+end_example
+Emacs will write, "Wrote <file>" in the minibuffer.
+
+*** Closing the buffer
+When you have saved a file and are finished with it and want to close
+its buffer, type:
+#+begin_example
+C-x k
+#+end_example
+This is the kill-buffer command.  Emacs will ask if you are sure, type
+"yes", and the buffer will be closed.
+
+*** Save buffer to different file 
+If you ever need to save a buffer you are working on as a different
+file name, type:
+#+begin_example
+C-x C-w
+#+end_example
+Emacs will prompt for a different file name in the mini-buffer.
+
+*** Undo!
+If you ever need to undo an edit you've made or a mistake, type:
+#+begin_example
+C-_ 
+or 
+C-x u
+or, even
+C-/
+#+end_example
+Obviously undo is a popular command!  Any of these key combinations
+will work. It may be easiest to remember C-x u, stands for undo.  Also
+later I will show you how to customize emacs so you can bind C-z to
+undo as well, in case you are accustomed to that combination from other
+programs.
+
+*** Keyboard Quit 
+There is another handy command, for times when you start a key
+combination or something else like accidentally hitting close emacs,
+and you want to get out of the command.  Just type:
+#+begin_example
+C-g
+#+end_example
+This is the keyboard-quit command and it will quit out of anything
+started in the mini-buffer.  You may have to hit C-g a couple times to
+fully stop something that emacs has started.
+
+* Emacs help
+*** Help on a key combination
+If you would like information about a specific key combination, type
+#+begin_example
+C-h k
+#+end_example
+Emacs will prompt for the key combination you are curious about.  Type
+it, for example "C-c C-c" and hit return.  Emacs will pop up a help
+buffer with context-sensitive information about the function the key
+combination is bound to.  I say "context sensitive", because Emacs has
+many different "modes", which are groupings of different
+functionality.  For instance if you are playing tetris, the keys call
+different commands than if you are writing an email or editing source
+code.  Modes are the groupings of these different contexts.  
+
+*** Describe current mode
+And speaking of different modes, you can pull up a help buffer with
+information about the current "modes" with:
+#+begin_example
+C-h m
+#+end_example 
+
+*** Scroll other buffer
+Also this may be a good time to mention how to scroll other buffer.
+When Emacs pops up another buffer, say a help buffer, and you want to
+scroll it while keep the cursor in the current buffer, you can do this
+in one of several ways:
+#+begin_example
+M-C v
+or 
+M-<PgDn>
+#+end_example
+Also to scroll back up a page type M-<PgUp>.  Remember the M key is
+the "alt" key on most windows or linux keyboards or the "command key"
+on Macs.
+
+
+* Buffers
+*** Jump to other buffer
+If you have more than one buffer open and want the cursor in a
+different buffer, type
+#+begin_example
+C-x o
+#+end_example
+You can remember this key combination, by thinking "o" for other
+buffer.  If you keep repeating these keys, the cursor will cycle
+through all of the open buffers.
+*** Open a second horizontal window
+If you would like to open another window, type
+#+begin_example
+C-x 2
+#+end_example
+This will split the current buffer into 2 panes.  It will open the
+current file you are working on in both panes.
+*** Open another vertical window
+If you would like to split the current window pane vertically instead, type:
+#+begin_example
+C-x 3
+#+end_example
+
+*** Close all windows but the current
+If you'd like to close all open window panes, and concentrate on the
+buffer you are currently in, type:
+#+begin_example
+C-x 1
+#+end_example
+Remember, this with return to "1" pane.

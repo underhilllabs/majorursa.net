@@ -1,17 +1,13 @@
 #+TITLE:     Rails Notes
 #+DATE:      2011-05-24 Tue
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS: rails, emacs, rinari, ruby, rubyonrails
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   index.html
 #+LINK_HOME: index.html
-#+XSLT:
-#+STYLE: <style type="text/css">.src {background:#304020; color:#FFDEAD; }</style>
+
 
 http://farm4.static.flickr.com/3184/2886745454_222717cf27_m.jpg
 
