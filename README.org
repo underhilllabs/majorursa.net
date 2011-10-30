@@ -1,1 +1,9 @@
-* These are pages from my Notes site at http://majorursa.net
+** These are pages from my Notes site at http://majorursa.net
+
+I use org-publish to 
+1. transform them into HTML and
+2. to publish them to my server.
+
+its pretty neat.
+
+see [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html]]
