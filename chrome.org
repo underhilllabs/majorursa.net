@@ -1,0 +1,45 @@
+* Interesting things about Chrome
+** Chrome has its own Task Manager
++ Shift-Escape
+** about:memory 
+displays Memory Statistics for Chrome and Other Browsers
+
+* Chrome Shortcuts
+S=Shift
+C=Control
+
++ S-C-J:   Javascript Console
++ S-C-I:   Developer Tools
++ S-C-Del: Delete Browsing Data
++ S-C-T:   new tab
++ S-C-N:   new Incognito Window
++ C-N:     new Window 
+
+** Chrome Extensions
+*** Developer Tools
++ hit F12 to pull up and dismiss interface (or S-C-i)
++ right click on element and select inspect element from menu
+*** Manipulate CSS on the Fly
++ Double click in the CSS pane of elements menu to change CSS property.
++ Tab completion: hit tab for tab completion
++ To add a new element to css, click on gear menu at top of CSS menu.
++ Developer Tools keeps track of revisions, any css file with an arrow
+  by it, has a revision history of your changes
+  + To see revision, click the Resources tab, any css files listed
+    with arrow next to name, have revision history.
+    + If you click on a file name, the css file will be displayed and
+      any changes from original will be highlighted.
+  + Right click on it, and select "Save as.." to save a revision of
+    the css file.
+  + Drag and drop the revision into most editors.
+  + You can right click on a revision to revert to that version of the
+    CSS history.
+*** Command Line API
+**** dir()
+**** inspect()
+**** $0
+**** copy()
+*** further reading/viewing
+http://code.google.com/chrome/devtools/docs/elements-styles.html
+
+[[http://www.youtube.com/watch?v=N8SS-rUEZPg][Google Developer Tools Reloaded -- Google IO 2011]]

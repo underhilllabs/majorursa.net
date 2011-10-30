@@ -1,28 +1,51 @@
-#+TITLE:     Major Ursa
-#+DATE:      2011-05-24 Tue
+#+TITLE:     Major Ursa Tech Collective
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS: emacs, orgmode, hacker, ruby, rails, drupal, R
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-##+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
-#+LINK_UP:   
-#+LINK_HOME: 
-#+XSLT:
+
 
 http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
 
-* Major Ursa Hackerspace \sube Major Ursa Tech Collective
 
 
-** here are some of my notes:
-+ [[./zombies.org][Emacs, Orgmode and Zombies]]
-+ [[./rails_notes.org][My notes on Ruby and Rails]]
+
+** Drupal
++ [[./drush.org][Drush Notes]]
++ [[./drupal.org][Drupal Notes]]
++ [[./dcc2011/index.org][Notes from Drupal Camp Colorado]]
+
+** Web Development
++ [[./webdev_cheatsheet.org][Web Dev Cheatsheet]]
++ [[./git.org][Use Git for Version Control]]
++ [[./chrome.org][Chrome Notes]]
++ [[./apache.org][Apache Stuff]]
+
+** System Administration
++ [[./netstat.org][Using Netstat]]
++ [[./dns.org][DNS]]
+
+
+** Emacs Pages
 + [[./emacs_cheatsheet.org][My Emacs cheatsheet]]
 + [[./elisp_notes.org][Emacs Lisp Notes]]
++ [[./transpose_windows.html][Writing an Emacs Command]]
+
+** R stuff
++ [[./r-intro.html][R Introduction]]
++ [[./r-emacs.html][R, Emacs and Org-mode]]
++ [[./data.org][Tools For Working with Data]]
+
+** Org-mode
++ [[./orgmode.html][my Orgmode notes]]
++ [[./zombies.org][Emacs, Orgmode and Zombies]]
+
+** Ruby Pages
++ [[./rails_notes.org][My notes on Ruby and Rails]]
+** Cryptography
++ [[./shift.html][Caesar Shift Cipher]]
++ [[./vigenere.html][Vigenere Cipher]]
+
 
 ------
-
-

@@ -1,0 +1,60 @@
+#+TITLE:     Names Array in ruby
+#+AUTHOR:    bart
+#+EMAIL:     bart@panther-laptop
+#+DATE:      2011-05-25 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+** namesdata.txt
+#+begin_example
+James Tiberius Kirk 12 234.13 182 89123.98
+Jean-Luc Picard 112 34.38 78 33.474
+Data 212 3.5 79 67.9393
+Chief Inspector Seamus Olav McGraw 912 2334.333 4182 83.20320
+Geordi LaForge 612 37.37 80 83.0393
+Major Kira Nerys 712 21.32 82 85.393
+Commander Worf 12 54.53 82 77.40
+Lursa Duras 412 354.23 84 93.499485
+Elim Garak 132 31.1 85 53.86956
+Quark 132 37.37 87 99.940
+Benjamin Sisko 12 334.3 842 8.0696
+The Grand Nagus 12 334.3 86 7.4040
+Mister Spock 12 39.42 82 12823.05959
+Chief Engineer Montgomery Scott 12 39.23 82 143.9383
+Sherman LeGrande 12 343.3 82 93.736
+Doctor Julian Bashir 12 12.3 382 23.9938
+Jadzia Dax 512 14.8 81 91.230
+William Riker 12 64.38 86 55.28
+Seven of Nine 23 34.5 92 93.499
+#+end_example
+
+** Read in Names Data file, store in arrays
+#+begin_src ruby +n :exports both :results output
+  @names = []
+  @ints1 = []
+  @ints2 = []
+  @reals1 = []
+  @reals2 = []
+  open("namesdata.txt").readlines.each do |l|
+    line = l.split(" ")
+    name = line[0..-5]
+    @ints1 << line[-4]
+    @reals1 << line[-3]
+    @ints2 << line[-2]
+    @reals2 << line[-1]
+    @names<< name.join(" ")
+  end
+  @names.each do |n|
+    puts n
+  end
+  
+#+end_src
+
+
+

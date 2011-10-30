@@ -1,0 +1,43 @@
+* Use Netstat to show Network Connections on your Server
+
+** Basic Usage 
+#+begin_html
+<pre>
+> netstat -lp
+</pre>
+#+end_html
+** Command Line Options
++ -l option shows listening ports
++ -p shows pids (process IDs) of listening processes
++ -n show numeric addresses, instead of symbolic host, port or user names
+
+** Notes on Different Command line Options
+*** -p
++ Active Internet Connections (w/o servers)
+
+*** -l
++ Active Internet Connections (only servers)
+
+*** -r: Check routing table
+
+*** -i:  Display Interface statistics
+This can be used if you are testing a slow connection or a connection
+that is down
+#+begin_html
+<pre>
+> netstat -i
+Kernel Interface table
+Iface       MTU Met   RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth1       1500 0         0      0      0 0             0      0      0      0 BMU
+lo        16436 0      3800      0      0 0          3800      0      0      0 LRU
+wlan1      1500 0    518088      0      0 0        304839      0      0      0 BMRU
+</pre>
+#+end_html
+This output shows (in the RX-OK column) that packets have been received
+error-free on the lo (loopback) and wlan1 (wireless) interface,
+however, no packets have been transferred on eth1, therefore either the
+ethernet is down or unplugged.  Also the TX-OK column shows that
+packets have been transmitted on those interfaces as well.
+
+** Further Reading
++ [[http://tldp.org/LDP/nag2/x-087-2-iface.netstat.html][Netstat Documentation at Linux Doc Project]]

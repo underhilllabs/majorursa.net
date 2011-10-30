@@ -1,17 +1,13 @@
 #+TITLE:     Notes on Emacs Lisp
 #+DATE:      2011-05-24 Tue
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS: Emacs, lisp, orgmode
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   index.html
 #+LINK_HOME: index.html
 #+XSLT:
-#+STYLE: <style type="text/css">.src {background:#304020; color:#FFDEAD; }</style>
 
 http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
 
@@ -30,13 +26,14 @@ http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
 ** Ask a yes or no question
 #+begin_src elisp
 (y-or-n-p "Is Sherman the Best Snuggle Cat? ")
-;; progn lets you write a bunch of statements in a row
-;; %s string
-;; %d number
-;; %c character
 #+end_src
 
 ** Use progn for a block of statements
++ progn lets you write a bunch of statements in a row
++ Message formatting special Characters:
+  + %s string
+  + %d number
+  + %c character
 #+begin_src elisp
 (progn
   (setq mymessage "You hear me!")
@@ -68,48 +65,48 @@ http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
 
 ** Elisp Control structures
 *** When
-**** use when instead of if, *when* you don't need an else branch
+use when instead of if, *when* you don't need an else branch
 #+begin_src elisp
 (when (< 2 3)
       (message "2 is lt 3, silly"))
 #+end_src
 
-*** Unles s
-**** unless opposite of when I guess
+*** Unless
+unless opposite of when I guess
 #+begin_src elisp
 (unless (< 3 2)
 	(message "I guess 3 isn't lt 2 after all."))
 #+end_src
 
 *** Let
-***** let starts block with local scope, and creates local variables
+let starts block with local scope, and creates local variables
 #+begin_src elisp
 ;;   (using global variables with setq w/out let is considered
 ;;    bad form.)
 (let ((a 30)(b 5))
      (message "Modulus %d %d is %d" b a (mod b a)))
-     
-;; do a count dracula loop
+#+end_src
+
+do a count dracula loop
+#+begin_src elisp
 (let ((a 1))
      (while (< a 10)
      (message "%d! ah ah ah!" a)
      (setq a (1+ a))))
+#+end_src
 
-;; do a count dracula loop
-;; /= is elist for !=
-(let ((a 1))
-     (while (/= a 10)
-     (message "%d! ah ah ah!" a)
-     (setq a (1+ a))))
 
-; add one to each list member
-;;;; mapcar loops through list, grabs first element "car", 
-;;;;   	  and "maps" function on to that element
-;;;; lambda is a nested subroutine
++ add one to each list member
+  + mapcar loops through list, grabs first element "car", 
+    and "maps" function on to that element
+    lambda is a nested subroutine
+#+begin_src elisp
 (mapcar (lambda (x) (+ x 1)) '(1 2 3 4))
+#+end_src
 
-;; these are from http://xahlee.org/emacs/elisp_basics.html
-;; apply a file processing function to a list of files
++ these are from http://xahlee.org/emacs/elisp_basics.html
+  apply a file processing function to a list of files
+#+begin_src elisp
 (mapcar 'my-update-html-footer
         (list
 	"/home/vicky/web/3d/viz.html"
@@ -118,19 +115,26 @@ http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
 	"/home/vicky/web/dinju/Khajuraho2.html"
 	"/home/vicky/web/dinju/Khajuraho3.html")
 	)
-;; get region argument
+#+end_src
+
+get region argument
+#+begin_src elisp
 (defun region-start-end (myStart myEnd)
   "Prints region start and end positions"
   (interactive "r")
   (message "Region begins at: %d, ends at: %d" myStart myEnd))
+#+end_src
 
-;; 
+Ask User For Input 
+#+begin_src elisp
 (defun best-snuggler (cat)
        "Asks user for best snuggling cat!"
        (interactive "sPlease enter name of the best snuggling cat: ")
        (message "Apparently, %s is the best snuggler!" cat))
+#+end_src
 
-;; turns string into list of ascii values
+Turns String Into List Of Ascii Values
+#+begin_src elisp
 (apply 'string (mapcar (lambda (x) (+ x 3)) (string-to-list
 "ABCD123")))
 
@@ -156,8 +160,8 @@ http://farm1.static.flickr.com/123/357526380_e2da8b6721_m.jpg
 ;; write-region start end filename &optional append .. 
 #+end_src
 
-*** exercises from Stackoverflow:
-;; http://stackoverflow.com/questions/41522/tips-for-learning-elisp
+** Exercises to Help Learn a new Language from Stackoverflow:
+http://stackoverflow.com/questions/41522/tips-for-learning-elisp
 
 
 **** load-my-favorite-file
@@ -192,15 +196,16 @@ pX write function to print the odd numbers from 1 to 99
 ****** find the largest int value in an array 
 ****** Format an RGB value (three 1-byte numbers) as a 6-digit hexadecimal string.
 
+#+begin_src emacs-lisp
 (defun print-odd (cur n)
        "function to print odd numbers to n"
        (interactive)
        (if (< cur n)
-           (progn 
+           (progn                              ;; if true section
                   (if (> (% cur 2) 0)
                       (message "%d" cur))
                   (print-odd (+ cur 1) n))
-           (message "all done")))
+           (message "all done")))              ;; else section
 (print-odd 0 100)
 
 (defun reverse-str (str rev)
@@ -211,3 +216,4 @@ pX write function to print the odd numbers from 1 to 99
 (reverse-str "hello" "")
 (car (list "hello"))
 (read-from-string)
+#+end_src

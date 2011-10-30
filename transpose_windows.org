@@ -1,0 +1,97 @@
+#+TITLE:     Writing an Emacs Function
+#+DATE:      2011-05-25 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   index.html
+#+LINK_HOME: index.html
+
+
+* Writing an emacs lisp command
+#+begin_src emacs-lisp
+(defun transpose-windows ()
+       "transpose current-window and next-window"
+       (interactive)
+       (setq buffer-1 (buffer-name))
+       (message "jumping to other window")
+       (other-window)
+       (setq buffer-2 (buffer-name))       
+       (switch-to-buffer (buffer-1))
+       (other-window -1)
+       (switch-to-buffer (buffer-2)))
+#+end_src
+
+(setq cur-buffer (buffer-name))
+(buffer-name)
+(transpose-windows)
+*** writing commands incrementally
+Emacs has many great features to help yoy write functions. For
+instance you can evaluate functions and variable write in the emacs
+editing buffer by typing:
+#+begin_example
+C-x C-e 
+#+end_example
+after the variable name or after the closing parenthesis of a
+function.  And the results will be echoed in the mini-buffer.
+
+For instance you could type the following into a buffer, and then type
+C-x C-e after, to evaluate.  
+#+begin_src emacs-lisp :exports both  
+(buffer-name)
+#+end_src 
+
+#+results:
+: transpose_windows.org
+
+**** Next Incremental Step
+Start with a simple command to save the current buffer's name in a
+variable and then jump to other window and write both that variable
+and the current buffer's name
+#+begin_src emacs-lisp
+  (defun jmp-print-buffer ()
+    "jump to next-window and swap to current buffer"
+    (interactive)
+    (setq buffer1 (buffer-name))
+    (message "buffer1 is %s" buffer1)
+    (other-window 1)
+    (message "buffer1 was %s" buffer1)
+    (message "buffer-name is %s" buffer-name))
+
+#+end_src
+Next, write a function to save buffer name, jump to other-window and
+switch buffers to that buffer.
+#+begin_src emacs-lisp
+  (defun jmp-swap ()
+    "jump to next-window and swap to current buffer"
+    (interactive)
+    (setq buffer-1 (buffer-name))
+    (message "buffer-1 is %s" buffer-1)
+    (other-window -1)
+    (switch-to-buffer buffer-1)
+    (message "buffer-1 is %s" buffer-1)
+    (message "buffer-name is %s" buffer-name))
+#+end_src
+*** This works!!
+
+Now, its time to finish the program!
+** Transpose-windows
+#+begin_src emacs-lisp
+(defun transpose-windows () 
+       "Swap buffer in current window with next window."
+       (interactive)
+       (setq buffer1 (buffer-name))
+       (other-window 1)
+       (setq buffer2 (buffer-name))
+       ;;(message "current buffer was %s" buffer1)
+       ;;(message "current buffer now: %s" (buffer-name))
+       ;;(message "oh yes! will switch to %s" buffer2)
+       (switch-to-buffer buffer1)
+       (other-window -1)
+       (switch-to-buffer buffer2))
+
+#+end_src
