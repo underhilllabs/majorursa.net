@@ -1,4 +1,4 @@
-** These are pages from my Notes site at http://majorursa.net
+** These are pages from my Notes site at [[http://majorursa.net]]
 
 I use org-publish to 
 1. transform them into HTML, using the projects headers and css files
