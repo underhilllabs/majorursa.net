@@ -1,29 +1,51 @@
 * Miscellaneous Linux Sysadmin Commands
 ** how much space on devices
+#+begin_example
 df -kh
+#+end_example
+
+
 ** find disk hogs
+#+begin_example
 du -sh /home/*
+#+end_example
+
 
 ** rm files +5 days
+#+begin_example
 find  . -mtime +5 -print | xargs rm
+#+end_example
+
 
 ** check out how much memory on server
+#+begin_example
 free -m
+#+end_example
+
 
 ** mount hd or usb
+#+begin_example
 mount /dev/hda1 /mnt
 mount /dev/sda1 /flash
+#+end_example
+
 
 # cp /usr/local/apache/bin/apachectl /etc/init.d/apache
 # update-rc.d apache defaults
 
 ** debian way to remove a service
+#+begin_example
 update-rc.d -f <service> remove 
+#+end_example
+
 
 ** how to use ln
+#+begin_example
 ln -s target [link_name]
 # if link_name is omitted creates ln w/same name
 # in current dir
+#+end_example
+
 
 
 ** File Regexp Substitution
@@ -34,10 +56,20 @@ perl -pi -e 's/old/new/' *.php
 
 
 ** add script to rc*.d start up scripts
+#+begin_example
 update-rc.d spamassassin defaults
+#+end_example
+
 
 ** remove script from rc*d
+#+begin_example
 update-rc.d -f spamassassin defaults
+#+end_example
+
 
 ** rm files in current directory older than 90 days
+#+begin_example
 find . -type f -mtime +90 -exec rm -f {} \;
+#+end_example
+
+

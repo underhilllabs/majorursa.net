@@ -1,0 +1,35 @@
+* Misc Network Commands
+
+** show everything about computer
+#+begin_example
+lshw 
+# also lspci -vv
+#+end_example
+
+
+** what programs are listening on tcp/udp ports
+#+begin_example
+lsof -i 
+#+end_example
+
+
+** adding wireless drivers (old, out-of-date)
+#+begin_example
+ndiswrapper -d <device> <driver .. bcmwl5.pnf>
+ndiswrapper -d <device> bcmwl5.inf
+#+end_example
+
+** shows the open ports waiting for 
+#requests and what process has them open
+> netstat -lnp 
+# active internet connections
+> netstat -ln
+
+** u=user info,w=wide,e=env bits appended 
+> ps -auxew
+
+** how to change network information
+vi /etc/network/interfaces
+
+*** Then restart your network:
+/etc/init.d/networking restart
