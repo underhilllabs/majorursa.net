@@ -15,17 +15,19 @@ http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
 + [[./drush.org][Drush Notes]]
 + [[./drupal.org][Drupal Notes]]
 + [[./dcc2011/index.org][Notes from Drupal Camp Colorado]]
++ [[./dgb.org][DGB, Drush Git Backup]]
 
 ** Web Development
 + [[./webdev_cheatsheet.org][Web Dev Cheatsheet]]
 + [[./git.org][Use Git for Version Control]]
 + [[./chrome.org][Chrome Notes]]
 + [[./apache.org][Apache Stuff]]
++ [[./vim.org][Vim]]
 
 ** System Administration
 + [[./netstat.org][Using Netstat]]
 + [[./dns.org][DNS]]
-
++ [[./debian.org][Debian Package Management]]
 
 ** Emacs Pages
 + [[./emacs_cheatsheet.org][My Emacs cheatsheet]]
@@ -49,3 +51,4 @@ http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
 
 
 ------
+

@@ -1,0 +1,94 @@
+* Vim
+http://majorursa.net/hide_vi.jpg
+
+** Vi Commands
+| vi key combo          | command                                                       |
+|-----------------------+---------------------------------------------------------------|
+| :q!                   | quit without saving                                           |
+| :wq                   | write and quit                                                |
+| :q                    | quit                                                          |
+| :%s/oldword/newword/g | substitute all oldword occurences with newword in entire file |
+|-----------------------+---------------------------------------------------------------|
+| dw                    | delete word                                                   |
+| d$                    | delete to end of line                                         |
+| dd                    | delete current line                                           |
+| .                     | repeat last change                                            |
+| yy                    | copy, yank line into buffer                                   |
+| p                     | paste the line in buffer after cursor position                |
+| cw                    | change word                                                   |
+| u                     | undo!                                                         |
+| i                     | insert mode                                                   |
+| <Esc>                 | escape, exit insert mode                                      |
+| /VirtualHost          | search file for phrase "VirtualHost"                          |
+| n                     | move to next occurence of search phrase                       |
+| 100G                  | move to 100th line                                            |
+| 1G                    | move to first line                                            |
+| G                     | move to last line                                             |
+
+
+** more vi cheatsheets
+
+http://www.washington.edu/computing/unix/viqr.html
+
+http://www.lagmonster.org/docs/vi.html
+
+** add to .screenrc to get Color Schemes working
+#+begin_example
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+term screen-256color-bce
+#+end_example
+
+** .vimrc
+#+begin_example
+" Colors!!
+set t_Co=256
+
+" color theme
+" colors zenburn
+colors calmar256-dark
+
+set showmode "show current mode down the bottom
+
+"Setting the status line...
+
+set statusline=%f       "tail of the filename
+
+"display a warning if the file format isn't Unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+"display a warning if file encoding isn't UTf-8
+set statusline+=%#warningmsg#
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+
+set statusline+=%h      "help file flag
+set statusline+=%y      "filetype
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+syntax on
+
+#+end_example
+
+** Window Commands
+|-------+------------------------------|
+| C-w s | Split window horizontally    |
+| C-w v | Split window vertically      |
+| C-w x | Exchange windows             |
+| C-w w | jump to next window          |
+| :only | kill all windows but current |
+| C-w = | equalize all window sizes    |
+|-------+------------------------------|
+
+** Edit Keys: used with argument
+*** c change
++ cw = change word
+*** d delete
++ d$ delete til end of line
+*** r replace
++ r5 replace 5 chars
+*** y yank
++ yy yank entire line

@@ -190,74 +190,8 @@ add alias on server to get to drupal directory
 alias mu 'cd /var/www/majorursalia/drupal-6.22/'
 #+end_example
 
-
-* Drush Commands
-** drush 
-#+begin_example
-// Download a module or theme
-sudo drush dl cck
-// Enable module or theme
-sudo drush en cck
-// clear cache all, don't need sudo
-drush cc all
-// Get help message on command
-drush help pm-update
-// List site aliases
-drush sa
-// Get status on particular site, via site-alias
-drush @math status
-#+end_example
-#+TITLE:     Major Ursa Tech Collective
-#+DESCRIPTION:
-#+KEYWORDS: emacs, orgmode, hacker, ruby, rails, drupal, R
-#+LANGUAGE:  en
-#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
-#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-
-
-http://farm4.static.flickr.com/3277/2514580290_9550c2e3ea_m.jpg
-
-
-
-
-** Drupal
-+ [[./drush.org][Drush Notes]]
-+ [[./drupal.org][Drupal Notes]]
-+ [[./dcc2011/index.org][Notes from Drupal Camp Colorado]]
-
-** Web Development
-+ [[./webdev_cheatsheet.org][Web Dev Cheatsheet]]
-+ [[./chrome.org][Chrome Notes]]
-+ [[./apache.org][Apache Stuff]]
-
-** System Administration
-+ [[./netstat.org][Using Netstat]]
-+ [[./dns.org][DNS]]
-
-
-** Emacs Pages
-+ [[./emacs_cheatsheet.org][My Emacs cheatsheet]]
-+ [[./elisp_notes.org][Emacs Lisp Notes]]
-+ [[./transpose_windows.html][Writing an Emacs Command]]
-
-** R stuff
-+ [[./r-intro.html][R Introduction]]
-+ [[./r-emacs.html][R, Emacs and Org-mode]]
-+ [[./data.org][Tools For Working with Data]]
-
-** Org-mode
-+ [[./orgmode.html][my Orgmode notes]]
-+ [[./zombies.org][Emacs, Orgmode and Zombies]]
-
-** Ruby Pages
-+ [[./rails_notes.org][My notes on Ruby and Rails]]
-** Cryptography
-+ [[./shift.html][Caesar Shift Cipher]]
-+ [[./vigenere.html][Vigenere Cipher]]
-
-
-------
 * vi Commands
+http://majorursa.net/hide_vi.jpg
 
 | vi key combo          | command                                                       |
 |-----------------------+---------------------------------------------------------------|

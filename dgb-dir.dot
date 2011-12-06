@@ -1,0 +1,24 @@
+digraph G {
+        rankdir = LR;
+        node[shape=record];
+        
+        dgb_instance->drupal;
+        dgb_instance->databases;
+        dgb_instance->drushrc_php;
+        dgb_instance->dot_git;
+        databases->example1_com_sql;
+        databases->default_sql;
+        drupal->sites;
+        sites->example1_com;
+        sites->default;
+        drupal->index_html;
+        example1_com[label="example.com"];
+        example1_com_sql[label="example1.com.sql"];
+        default_sql[label="default.sql"];
+        index_html[label="index.html"];
+        drushrc_php[label="drushrc.php (dgb configuration file, optional)"];
+        dot_git[label=".git (dgb git repository)"];
+        
+                   
+        }
+      

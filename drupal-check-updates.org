@@ -1,0 +1,33 @@
+* Ruby Script to Check which Drupal Sites have Security Updates Available
++ Script calls drush site-alias to get list of sites on server
++ loops through sites, checking each with drush pm-update --security-only
+#+begin_src ruby 
+#!/usr/bin/env ruby
+reply = ""
+# grab a list of site aliases
+sites = %x{ /usr/local/bin/drush site-alias }
+# loop thru them checking for updates
+sites.each do |s|
+  # commented out line checks if any updates available
+  # answer = %x{ /usr/local/bin/drush #{s.chomp} pm-update --pipe}
+  # check for security updates only
+  answer = %x{ /usr/local/bin/drush #{s.chomp} pm-update --pipe --security-only}
+  if answer.chomp != "" then
+      reply = reply + "checking #{s.chomp} for security updates\n"
+      reply = reply + answer
+  end
+end
+if reply.chomp != "" then
+  puts reply
+end
+
+#+end_src
+
+** Example output
+#+begin_example
+$ check-updates.rb
+
+checking @devp for security updates
+views 7.x-3.0-rc1 7.x-3.0-rc3 SECURITY-UPDATE-available
+
+#+end_example

@@ -20,3 +20,10 @@
 3. In the 'Basic Settings' block click on 'Theme: Information' to see all the different templates you can modify.
 
 + [[http://drupal.org/node/352970][Views 2 Theming - Drupal Doc]]
+
+** Dealing with Managing News Database
++ The following command reduced my database size by about half.
+#+begin_example
+truncate search_index
+#+end_example
+*** PS don't allow anyone to use Managing News on your server.

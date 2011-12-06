@@ -1,0 +1,20 @@
+* Notes for updating Debian based distros
+
+** Add a new Apt Source
+Add the repository to your list of sources. The source list is located
+in /etc/apt/sources.list.
+#+begin_example
+sudo vi /etc/apt/sources.list
+#+end_example
+
+** Refresh the list 
+#+begin_example
+sudo apt-get update
+#+end_example
+
+** Add a new key to your gpg-server
+This allows you to authenticate the debian packages.
+#+begin_example
+sudo apt-key add pubkey.asc
+#+end_example
+
